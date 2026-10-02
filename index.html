@@ -1,0 +1,2396 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitness & Sports Instructor | Sports Massage, Global Sports & Complete Fitness</title>
+<style>
+:root{
+  --primary:#19d3ae;
+  --primary-dark:#0fb896;
+  --bg-dark:#07111f;
+  --bg-card:#0d1d2b;
+  --border-color:#1b3a4d;
+  --text-main:#eef6ff;
+  --text-sub:#cbd8e6;
+  --accent-gold:#ffc857;
+  --accent-red:#ff6b6b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,"Noto Sans Sinhala",sans-serif;background:var(--bg-dark);color:var(--text-main);line-height:1.7}
+header{background:linear-gradient(135deg,#07111f,#0d2b3d);padding:40px 5%;text-align:center;border-bottom:2px solid var(--primary);box-shadow:0 4px 25px rgba(0,0,0,0.5)}
+header h1{font-size:clamp(28px,5vw,52px);color:var(--primary);letter-spacing:1px}
+header p{font-size:17px;color:var(--text-sub);margin:8px 0 15px}
+.badge{display:inline-block;background:var(--primary);color:#031019;padding:6px 14px;border-radius:18px;font-weight:bold;font-size:13px;letter-spacing:1px}
+.btn{display:inline-block;padding:11px 20px;background:var(--primary);color:#031019;text-decoration:none;border-radius:10px;font-weight:bold;margin:5px;cursor:pointer;border:none;transition:0.25s all ease}
+.btn:hover{background:#fff;box-shadow:0 0 15px var(--primary)}
+.btn-outline{background:transparent;border:2px solid var(--primary);color:var(--primary)}
+.btn-outline:hover{background:var(--primary);color:#031019}
+
+/* Navigation Tabs */
+nav{z-index:999;background:#081522f0;backdrop-filter:blur(12px);display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:12px 10px;border-bottom:1px solid #1b3a4d}
+nav button.tab-btn{color:#fff;background:#102638;border:1px solid #1c3c52;padding:9px 16px;border-radius:22px;font-size:14px;font-weight:600;cursor:pointer;transition:0.3s;white-space:nowrap}
+nav button.tab-btn:hover{background:var(--primary);color:#031019}
+nav button.tab-btn.active{background:var(--primary);color:#031019;box-shadow:0 0 12px rgba(25,211,174,0.5);font-weight:bold}
+
+.container{width:min(1200px,94%);margin:auto;padding:25px 0}
+.page-tab{display:none;animation:fadeIn 0.35s ease-in-out}
+.page-tab.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:18px;padding:24px;margin:18px 0;box-shadow:0 10px 30px rgba(0,0,0,0.4)}
+h2{color:var(--primary);margin-bottom:14px;font-size:26px;display:flex;align-items:center;gap:10px}
+h3{color:#78e6d0;margin:8px 0;font-size:19px}
+p{margin-bottom:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+
+/* Mini Cards & Images */
+.mini-card{background:#0a1724;border:1px solid #1c3d52;border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.3);transition:0.3s transform}
+.mini-card:hover{transform:translateY(-4px);border-color:var(--primary)}
+.mini-card img{width:100%;height:190px;object-fit:cover;display:block;background:#050c14}
+.mini-card .mini-body{padding:18px}
+.mini-card ul{padding-left:20px;color:#bcd0de;font-size:14px;margin-top:8px}
+.mini-card ul li{margin-bottom:5px}
+
+.hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:center}
+.warning{border-left:4px solid var(--accent-gold);padding:15px;background:#221d10;margin:16px 0;border-radius:8px;font-size:14.5px}
+
+/* Modal / Popup for Detail Views */
+.modal{display:none;position:fixed;z-index:2000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.85);backdrop-filter:blur(6px);overflow-y:auto;padding:20px}
+.modal-content{background:#0d1d2b;border:2px solid var(--primary);border-radius:20px;max-width:850px;margin:30px auto;padding:30px;position:relative;box-shadow:0 15px 50px rgba(0,0,0,0.8)}
+.close-modal{position:absolute;top:16px;right:22px;font-size:32px;color:var(--primary);cursor:pointer;font-weight:bold}
+.close-modal:hover{color:#fff}
+
+/* BMI Calculator Modern Box */
+.bmi-calculator-box{background:linear-gradient(145deg,#0a1926,#102a3c);border:2px solid #1b4b66;border-radius:20px;padding:30px;box-shadow:0 12px 35px rgba(0,0,0,0.6)}
+.calc-inputs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:20px 0}
+.input-group{display:flex;flex-direction:column}
+.input-group label{font-weight:bold;margin-bottom:6px;color:#78e6d0;font-size:14px}
+input,select{width:100%;padding:13px 15px;border-radius:10px;border:1px solid #2a5573;background:#06101a;color:white;font-size:15px}
+input:focus,select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 10px rgba(25,211,174,0.3)}
+
+.bmi-meter-wrapper{margin:25px 0;background:#061019;border-radius:15px;padding:18px;border:1px solid #1c3f56}
+.bmi-bar-container{height:22px;border-radius:12px;background:linear-gradient(to right,#3498db 0%,#2ecc71 25%,#f1c40f 55%,#e67e22 75%,#e74c3c 100%);position:relative;margin:15px 0}
+.bmi-indicator-pin{position:absolute;top:-8px;width:6px;height:38px;background:#fff;border-radius:4px;box-shadow:0 0 10px #000;transition:0.5s left ease}
+.bmi-status-badge{display:inline-block;padding:8px 18px;border-radius:25px;font-weight:bold;font-size:18px;margin-top:10px}
+
+.diet-workout-plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:25px}
+.plan-col{background:#0a1724;padding:20px;border-radius:15px;border-top:4px solid var(--primary)}
+.plan-col h4{color:var(--primary);margin-bottom:12px;font-size:18px;display:flex;align-items:center;gap:8px}
+
+/* Sports Tab Filters */
+.sports-filter{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.filter-btn{background:#0f2436;color:#bcd0de;border:1px solid #1d4560;padding:8px 16px;border-radius:16px;cursor:pointer;font-size:13px}
+.filter-btn.active,.filter-btn:hover{background:var(--primary);color:#031019;font-weight:bold}
+
+/* Anatomy Diagram Styles */
+.anatomy-wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:25px;align-items:start}
+.anatomy-svg-box{background:#0a1724;border:1px solid #1c3d52;border-radius:18px;padding:15px;text-align:center}
+.anatomy-marker-circle{fill:var(--accent-gold);stroke:#031019;stroke-width:1.5}
+.anatomy-marker-text{fill:#031019;font-size:13px;font-weight:bold;font-family:Arial,sans-serif;text-anchor:middle;dominant-baseline:middle}
+.anatomy-leader{stroke:#3d6b80;stroke-width:1.5;stroke-dasharray:3,3}
+.anatomy-part-list{display:flex;flex-direction:column;gap:10px}
+.anatomy-part-item{background:#0a1724;border:1px solid #1c3d52;border-left:4px solid var(--accent-gold);border-radius:10px;padding:12px 16px;display:flex;gap:12px;align-items:flex-start}
+.anatomy-num{background:var(--accent-gold);color:#031019;font-weight:bold;min-width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+
+/* Stopwatch Styles */
+.stopwatch-display{font-family:'Consolas',monospace;font-size:clamp(34px,7vw,58px);font-weight:bold;color:var(--primary);text-align:center;letter-spacing:2px;margin:20px 0;background:#061019;border-radius:15px;padding:20px;border:1px solid #1c3f56}
+.lap-item{display:flex;justify-content:space-between;gap:10px;padding:10px 16px;background:#0a1724;border-radius:10px;margin-bottom:8px;border-left:3px solid var(--primary);font-size:14.5px}
+.lap-item .lap-num{color:var(--accent-gold);font-weight:bold}
+
+/* Distance Tracker Styles */
+.distance-display{text-align:center;background:#061019;border-radius:15px;padding:25px;border:1px solid #1c3f56;margin:20px 0}
+.distance-value{font-size:clamp(38px,7vw,58px);font-weight:bold;color:var(--primary)}
+.tool-btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:15px}
+.btn:disabled{opacity:0.45;cursor:not-allowed}
+.btn:disabled:hover{background:var(--primary);box-shadow:none}
+
+footer{text-align:center;padding:35px 20px;background:#040910;margin-top:50px;border-top:1px solid #132a3b;color:#aebdca}
+@media(max-width:768px){.hero-grid{grid-template-columns:1fr}nav{justify-content:flex-start;overflow-x:auto;-webkit-overflow-scrolling:touch}.anatomy-wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header style="padding:0;overflow:hidden">
+  <img src="assets/fitness-red.png" alt="Fitness and Sports Instructor" style="width:100%;height:auto;display:block">
+</header>
+
+<!-- NAVIGATION TABS (SEPARATE PAGES FEEL) -->
+<nav id="navbar">
+  <button class="tab-btn active" onclick="switchTab('home')">🏠 මුල් පිටුව</button>
+  <button class="tab-btn" onclick="switchTab('bmi')">⚖️ ස්මාර්ට් BMI කැල්කියුලේටරය</button>
+  <button class="tab-btn" onclick="switchTab('sports')">🏆 ලෝකයේ සියලු ක්‍රීඩා & නීති</button>
+  <button class="tab-btn" onclick="switchTab('massage')">💆 සම්බාහන හා තෙරපි</button>
+  <button class="tab-btn" onclick="switchTab('exercise')">🏃 ව්‍යායාම & PT</button>
+  <button class="tab-btn" onclick="switchTab('gym')">🏋️ ජිම් & Weight Training</button>
+  <button class="tab-btn" onclick="switchTab('food')">🥗 පෝෂණය & ආහාර</button>
+  <button class="tab-btn" onclick="switchTab('health')">🩺 රෝග හා සෞඛ්‍ය</button>
+  <button class="tab-btn" onclick="switchTab('global-therapies')">🌍 ගෝලීය තෙරපි පුස්තකාලය</button>
+  <button class="tab-btn" onclick="switchTab('anatomy')">🦴 සිරුර සහ අස්ථි</button>
+  <button class="tab-btn" onclick="switchTab('tools')">⏱️ මෙවලම්</button>
+  <button class="tab-btn" onclick="switchTab('gallery')">📸 ඡායාරූප ගැලරිය</button>
+  <button class="tab-btn" onclick="switchTab('contact')">📞 සම්බන්ධ වන්න</button>
+</nav>
+
+<div class="container">
+
+  <!-- ================= 1. HOME TAB ================= -->
+  <section id="home" class="page-tab active">
+    <div class="hero-grid">
+      <div class="card">
+        <div style="border-radius:15px;overflow:hidden;margin-bottom:15px">
+          <img src="assets/fitness-blue.png" alt="Fitness Coach" style="width:100%;height:250px;object-fit:cover;display:block">
+        </div>
+        <h2>ශරීරය හඳුනාගෙන, ආරක්ෂිතව පුහුණු වෙමු</h2>
+        <p>මෙම වෙබ් අඩවිය ක්‍රීඩා සම්බාහනය, ශාරීරික යෝග්‍යතාව, ව්‍යායාම, ලෝකයේ ප්‍රධාන ක්‍රීඩා නීති රීති, ස්මාර්ට් BMI විශ්ලේෂණය, පෝෂණය සහ සෞඛ්‍ය දැනුම පිළිබඳ සවිස්තරාත්මක සිංහල මාර්ගෝපදේශයකි.</p>
+        <div style="margin-top:15px">
+          <button class="btn" onclick="switchTab('bmi')">⚖️ ස්මාර්ට් BMI එක බලන්න</button>
+          <button class="btn btn-outline" onclick="switchTab('sports')">🏆 ක්‍රීඩා නීති & විස්තර</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3>උපදේශක මණ්ඩලය</h3>
+        <h2>Fitness & Sports Instructor</h2>
+        <p><strong>Sports Massage & Fitness Guidance Specialist</strong></p>
+        <p>වෘත්තීය මට්ටමේ ක්‍රීඩකයන්ට, කායවර්ධන ශිල්පීන්ට සහ සාමාන්‍ය ජනතාවට තුවාලවලින් තොරව සිරුර පවත්වා ගැනීමට අවශ්‍ය විද්‍යාත්මක මගපෙන්වීම.</p>
+        <div class="warning">
+          <strong>සටහන:</strong> මෙම වෙබ් අඩවියේ අඩංගු සියලුම සෞඛ්‍ය සහ ව්‍යායාම තොරතුරු අධ්‍යාපනික හා දැනුවත් කිරීමේ අරමුණින් පමණක් සකසා ඇත.
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Features -->
+    <div class="grid" style="margin-top:25px">
+      <div class="card" style="cursor:pointer" onclick="switchTab('sports')">
+        <h3>🏅 ලෝකයේ සම්පූර්ණ ක්‍රීඩා නාමාවලිය</h3>
+        <p>පාපන්දු, ක්‍රිකට්, රග්බි, මලල ක්‍රීඩා, බැඩ්මින්ටන්, බොක්සිං ඇතුළු ලෝකයේ ක්‍රීඩා කරන ආකාරය, පිටියේ නීති සහ ක්‍රීඩක සංඛ්‍යා වෙන වෙනම කියවන්න.</p>
+        <span style="color:var(--primary);font-weight:bold">විස්තර බලන්න &rarr;</span>
+      </div>
+      <div class="card" style="cursor:pointer" onclick="switchTab('bmi')">
+        <h3>📐 උස අඩි/සෙ.මී. ස්මාර්ට් BMI</h3>
+        <p>ඔබේ උස අඩි සහ අඟල් වලින් දුන් විට ස්වයංක්‍රීයව සෙන්ටිමීටර වලට හැරවීම, සිරුරේ බර තත්ත්වය, නිර්දේශිත බර, ආහාර සැලැස්ම සහ ව්‍යායාම වර්ග එකවර ලබාගන්න.</p>
+        <span style="color:var(--primary);font-weight:bold">කැල්කියුලේටරය අරඹන්න &rarr;</span>
+      </div>
+      <div class="card" style="cursor:pointer" onclick="switchTab('massage')">
+        <h3>💆 ක්‍රීඩා මසාජ් සහ ප්‍රතිකාර</h3>
+        <p>Pre-event, Post-event, Deep tissue, Myofascial release ඇතුළු සම්බාහන ක්‍රමවල විද්‍යාත්මක වාසි සහ ක්‍රමවේද.</p>
+        <span style="color:var(--primary);font-weight:bold">තෙරපි ලැයිස්තුව &rarr;</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 2. BMI TAB (EXTREMELY COMPREHENSIVE) ================= -->
+  <section id="bmi" class="page-tab">
+    <div class="bmi-calculator-box">
+      <h2>⚖️ ස්මාර්ට් BMI & සෞඛ්‍ය උපදේශන පද්ධතිය (Full Body Analysis)</h2>
+      <p style="color:#bcd0de">ඔබගේ උස අඩි හෝ සෙන්ටිමීටර වලින් ඇතුළත් කර, නිවැරදි ශරීර ස්කන්ධ දර්ශකය (BMI), ශරීරයේ අමතර/අඩු බර ප්‍රමාණය, ආහාර පාලන උපදෙස් සහ ඔබ කළ යුතු ව්‍යායාම වර්ග ලබාගන්න.</p>
+      
+      <div class="calc-inputs-grid">
+        <div class="input-group">
+          <label>ලිංගිකත්වය (Gender)</label>
+          <select id="bmiGender">
+            <option value="male">පුරුෂ (Male)</option>
+            <option value="female">ස්ත්‍රී (Female)</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label>වයස (Age - අවුරුදු)</label>
+          <input type="number" id="bmiAge" value="25" min="10" max="100">
+        </div>
+        <div class="input-group">
+          <label>ශරීරයේ බර (Weight in kg)</label>
+          <input type="number" id="bmiWeight" placeholder="උදා: 68" step="0.1">
+        </div>
+      </div>
+
+      <div style="background:#081724;padding:18px;border-radius:12px;border:1px solid #1c415c;margin-bottom:20px">
+        <label style="color:#78e6d0;font-weight:bold;margin-bottom:10px;display:block">උස ඇතුළත් කිරීමේ ක්‍රමය තෝරන්න:</label>
+        <div style="display:flex;gap:20px;margin-bottom:12px">
+          <label style="cursor:pointer"><input type="radio" name="heightType" value="ft" checked onchange="toggleHeightInput()"> අඩි සහ අඟල් (Feet & Inches)</label>
+          <label style="cursor:pointer"><input type="radio" name="heightType" value="cm" onchange="toggleHeightInput()"> සෙන්ටිමීටර් (Centimeters - cm)</label>
+        </div>
+
+        <!-- Feet and inches container -->
+        <div id="feetInputContainer" style="display:flex;gap:15px">
+          <div style="flex:1">
+            <label style="font-size:13px;color:#a0bfd6">අඩි (Feet - ft)</label>
+            <input type="number" id="bmiFeet" placeholder="උදා: 5" min="1" max="8" oninput="syncFromFeet()">
+          </div>
+          <div style="flex:1">
+            <label style="font-size:13px;color:#a0bfd6">අඟල් (Inches - in)</label>
+            <input type="number" id="bmiInches" placeholder="උදා: 7" min="0" max="11" oninput="syncFromFeet()">
+          </div>
+          <div style="flex:1">
+            <label style="font-size:13px;color:#19d3ae;font-weight:bold">සෙන්ටිමීටර වලට හැරවීම (Auto cm)</label>
+            <input type="number" id="autoCmDisplay" readonly style="background:#030a10;color:#19d3ae;font-weight:bold">
+          </div>
+        </div>
+
+        <!-- Direct cm container -->
+        <div id="cmInputContainer" style="display:none">
+          <label style="font-size:13px;color:#a0bfd6">සෙන්ටිමීටර් (Centimeters - cm)</label>
+          <input type="number" id="bmiDirectCm" placeholder="උදා: 170" step="0.1" oninput="syncFromCm()">
+          <p id="autoFeetDisplay" style="font-size:13px;color:#19d3ae;margin-top:6px;font-weight:bold"></p>
+        </div>
+      </div>
+
+      <div style="text-align:center">
+        <button class="btn" onclick="calculateCompleteHealthProfile()" style="font-size:16px;padding:14px 35px">🚀 පූර්ණ ශරීර විශ්ලේෂණය ලබාගන්න</button>
+      </div>
+
+      <!-- Result Container -->
+      <div id="completeBMIReport" style="display:none;margin-top:30px">
+        <div class="bmi-meter-wrapper">
+          <h3 style="color:#fff;text-align:center">ඔබගේ BMI අගය: <span id="valBMI" style="color:var(--primary);font-size:32px;font-weight:bold">23.5</span></h3>
+          <div style="text-align:center">
+            <span id="badgeBMIStatus" class="bmi-status-badge">සාමාන්‍ය සෞඛ්‍ය සම්පන්න බර</span>
+          </div>
+
+          <div class="bmi-bar-container">
+            <div id="bmiPin" class="bmi-indicator-pin" style="left:40%"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:11.5px;color:#8aa2b8">
+            <span>කෙට්ටු (&lt;18.5)</span>
+            <span>සාමාන්‍ය (18.5-24.9)</span>
+            <span>වැඩි බර (25.0-29.9)</span>
+            <span>තරබාරු (30+)</span>
+          </div>
+        </div>
+
+        <!-- Metric Details -->
+        <div class="grid" style="margin-top:20px">
+          <div class="card" style="background:#091a27;margin:0">
+            <h4>📊 සිරුරේ බර පිළිබඳ දත්ත</h4>
+            <p style="margin-top:10px">ඇතුළත් කළ උස: <strong id="repHeight" style="color:#fff"></strong></p>
+            <p>ඇතුළත් කළ බර: <strong id="repWeight" style="color:#fff"></strong></p>
+            <p>ඔබගේ උසට සුදුසු නිරෝගී බර පරාසය: <strong id="repIdealRange" style="color:var(--primary)"></strong></p>
+            <p id="repWeightDifference" style="font-size:15px;font-weight:bold;margin-top:8px"></p>
+          </div>
+          <div class="card" style="background:#091a27;margin:0">
+            <h4>🔥 දෛනික කැලරි අවශ්‍යතාව (BMR & TDEE)</h4>
+            <p style="margin-top:10px">මූලික පරිවෘත්තීය කැලරි (BMR): <strong id="repBMR" style="color:#fff"></strong> kcal/දිනකට</p>
+            <p>සාමාන්‍ය ක්‍රියාශීලී දිනයක කැලරි: <strong id="repTDEE" style="color:#fff"></strong> kcal/දිනකට</p>
+            <p>දිනකට අවශ්‍ය සාමාන්‍ය ජල ප්‍රමාණය: <strong id="repWater" style="color:#78e6d0"></strong> లීටර්</p>
+          </div>
+        </div>
+
+        <!-- Diet and Exercise Plans Tailored -->
+        <div class="diet-workout-plan">
+          <div class="plan-col">
+            <h4>🥗 ඔබගේ බරට ගැළපෙන ආහාර පාලන සැලැස්ම</h4>
+            <div id="planDietContent"></div>
+          </div>
+          <div class="plan-col">
+            <h4>🏋️ කළ යුතු විශේෂිත ව්‍යායාම (Exercise Types)</h4>
+            <div id="planWorkoutContent"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3. ALL SPORTS OF THE WORLD & RULES ================= -->
+  <section id="sports" class="page-tab">
+    <div class="card">
+      <span class="badge">COMPREHENSIVE SPORTS DIRECTORY</span>
+      <h2 style="margin-top:10px">🏆 ලෝකයේ ප්‍රධාන හා ජනප්‍රිය සියලු ක්‍රීඩා නාමාවලිය</h2>
+      <p>ලෝකයේ ක්‍රීඩා කරන ප්‍රධාන සෑම ක්‍රීඩාවකම නීති රීති, ක්‍රීඩා කරන ආකාරය, පිටියේ මිනුම් සහ ක්‍රීඩකයින් ගණන මෙහි වෙන වෙනම දක්වා ඇත. වැඩිදුර විස්තර සඳහා එක් එක් ක්‍රීඩාවේ 'සම්පූර්ණ නීති හා විස්තරය' බොත්තම ක්ලික් කරන්න.</p>
+      
+      <div class="sports-filter">
+        <button class="filter-btn active" onclick="filterSports('all')">සියලුම ක්‍රීඩා (All)</button>
+        <button class="filter-btn" onclick="filterSports('ball')">පන්දු ක්‍රීඩා (Ball Games)</button>
+        <button class="filter-btn" onclick="filterSports('racket')">රැකට් ක්‍රීඩා (Racket Sports)</button>
+        <button class="filter-btn" onclick="filterSports('track')">මලල හා ජල ක්‍රීඩා (Track & Water)</button>
+        <button class="filter-btn" onclick="filterSports('combat')">සටන් ක්‍රීඩා (Combat Sports)</button>
+        <button class="filter-btn" onclick="filterSports('target')">ඉලක්ක හා බුද්ධි ක්‍රීඩා (Target & Mind)</button>
+      </div>
+
+      <div class="grid" id="sportsGrid">
+
+        <!-- 1. Cricket -->
+        <article class="mini-card sport-item" data-cat="ball">
+          <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=700&q=80" alt="ක්‍රිකට්">
+          <div class="mini-body">
+            <h3>🏏 ක්‍රිකට් (Cricket)</h3>
+            <p><strong>ක්‍රීඩකයින්:</strong> පිලකට 11 බැගින්</p>
+            <p>පන්දුවට පහරදීම, පන්දු යැවීම සහ පන්දු රැකීම මූලික වේ. ලකුණු වැඩිම පිල ජයග්‍රහණය කරයි.</p>
+            <ul>
+              <li>පිටියේ මැද යාර 22 ක පිච් (Pitch) එකක් පිහිටයි</li>
+              <li>ක්‍රම: ටෙස්ට්, එක්දින (ODI) සහ T20</li>
+            </ul>
+            <button class="btn" style="margin-top:10px;width:100%" onclick="openSportModal('cricket')">සම්පූර්ණ නීති & විස්තරය &rarr;</button>
+          </div>
+        </article>
+
+        <!-- 2. Football -->
+        <article class="mini-card sport-item" data-cat="ball">
+          <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=700&q=80" alt="පාපන්දු">
+          <div class="mini-body">
+            <h3>⚽ පාපන්දු (Football / Soccer)</h3>
+            <p><strong>ක්‍රීඩකයින්:</strong> පිලකට 11 බැගින්</p>
+            <p>ලෝකයේ ජනප්‍රියතම ක්‍රීඩාවයි. මිනිත්තු 90 ක කාලයක් තුළ ප්‍රතිවාදී ගෝල රාමුවට පන්දුව යොමු කිරීම අරමුණයි.</p>
+            <ul>
+              <li>දෑත් භාවිතය ගෝල් රකින්නාට පමණි (Penalty Box තුළ)</li>
+              <li>Offside (ඕෆ්සයිඩ්) සහ Foul නීති අදාළ වේ</li>
+            </ul>
+            <button class="btn" style="margin-top:10px;width:100%" onclick="openSportModal('football')">සම්පූර්ණ නීති & විස්තරය &rarr;</button>
+          </div>
+        </article>
+
+        <!-- 3. Rugby -->
+        <article class="mini-card sport-item" data-cat="ball">
+          <img src="https://images.unsplash.com/photo-1588492067756-372074e50bb9?auto=format&fit=crop&w=700&q=80" alt="රග්බි">
+          <div class="mini-body">
+            <h3>🏉 රග්බි (Rugby Union / Sevens)</h3>
+            <p><strong>ක්‍රීඩකයින්:</strong> 15 (Union) හෝ 7 (Sevens)</p>
+            <p>ඕවලාකාර පන්දුවක් රැගෙන ප්‍රතිවාදී Try line එක පසුකර බිම තැබීම (Try) සහ ගෝල් කණු අතරින් පන්දුව පයින් ගැසීම මූලික වේ.</p>
+            <ul>
+              <li>පන්දුව අතින් පාස් කළ හැක්කේ පිටුපසට පමණි (Forward pass තහනම්)</li>
+              <li>Tackling මගින් ප්‍රතිවාදියා නැවැත්වීම</li>
+            </ul>
+            <button class="btn" style="margin-top:10px;width:100%" onclick="openSportModal('rugby')">සම්පූර්ණ නීති & විස්තරය &rarr;</button>
+          </div>
+        </article>
+
+        <!-- 4. Basketball -->
+        <article class="mini-card sport-item" data-cat="ball">
+          <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=700&q=80" alt="බාස්කට්බෝල්">
+          <div class="mini-body">
+            <h3>🏀 බාස්කට්බෝල් (Basketball)</h3>
+            <p><strong>ක්‍රීඩකයින්:</strong> පිටියේ 5 බැගින්</p>
+            <p>අඩි 10 ක් උසින් ඇති දැල සහිත වළල්ලට (Basket) පන්දුව විසිකර ලකුණු (2 හෝ 3) ලබා ගැනීම.</p>
+            <ul>
+              <li>Dribbling නොකර පන්දුව රැගෙන ඇවිදීම (Traveling) තහනම්</li>
+              <li>තත්පර 24 ක Shot Clock කාලසීමාව</li>
+            </ul>
+            <button class="btn" style="margin-top:10px;width:100%" onclick="openSportModal('basketball')">සම්පූර්ණ නීති & විස්තරය &rarr;</button>
+          </div>
+        </article>
+
+        <!-- 5. Volleyball -->
+        <article class="mini-card sport-item" data-cat="ball">
+          <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=700&q=80" alt="වොලිබෝල්">
+          <div class="mini-body">
+            <h3>🏐 වොලිබෝල් (Volleyball)</h3>
+            <p><strong>ක්‍රීඩකයින්:</strong> පිලකට 6 බැගින් (ශ්‍රී ලංකාවේ ජාතික ක්‍රීඩාව)</p>
+            <p>මැද දැලට ඉහළින් ප්‍රතිවාදී කොටසේ බිම වැදෙන සේ පන්දුවට පහරදීම (Spike) සහ රැකගැනීම.</p>
+            <ul>
+              <li>පිලකට පන්දුවට ස්පර්ශ කළ හැක්කේ උපරිම 3 වතාවකි</li>
+              <li>දැලේ දැවටීම (Net touch) සහ රේඛාව කැපීම තහනම්</li>
+            </ul>
+            <button class="btn" style="margin-top:10px;width:100%" onclick="openSportModal('volleyball')">සම්පූර්ණ නීති & විස්තරය &rarr;</button>
+
+
+
+          </div>
+        </article>
+
+        <!-- 6. Badminton -->
+        <article class="mini-card sport-item" data-cat="racket">
+          <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=700&q=80" alt="බැඩ්මින්ටන්">
+          <div class="mini-body">
+            <h3>🏸 බැඩ්මින්ටන් (Badminton)</h3>
+            <p><strong>ක්‍රීඩකයින්:</strong> තනි (Singles) හෝ යුගල (Doubles)</p>
+            <p>Shuttlecock (මල් පන්දුව) රැකට් එකකින් පහරදී ප්‍රතිවාදී කෝට් එක තුළ බිම පතිත කිරීම.</p>
+            <ul>
+              <li>ලකුණු 21 බැගින් වූ සෙට් 3 කින් 2 ක් දිනන ක්‍රීඩකයා ජය ගනී</li>
+              <li>සර්විස් කිරීමේදී ඉණට පහළින් පහර දිය යුතුය</li>
+            </ul>
+            <button class="btn" style="margin-top:10px;width:100%" onclick="openSportModal('badminton')">සම්පූර්ණ නීති & විස්තරය &rarr;</button>
+          </div>
+        </article>
+
+        <!-- 7. Tennis -->
+        <article class="mini-card sport-item" data-cat="racket">
+          <img src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?auto=format&fit=crop&w=700&q=80" alt="ටෙනිස්">
+          <div class="mini-body">
+            <h3>🎾 ටෙනිස් (Lawn Tennis)</h3>
+            <p><strong>ක්‍රීඩකයින්:</strong> 1 vs 1 හෝ 2 vs 2</p>
+            <p>දැලට ඉහළින් පන්දුව bounce එකකට පසු ප්‍රතිවාදී කොටසට පහරදීම. ලකුණු ක්‍රමය 15, 30, 40, Game, Set වේ.</p>
+            <ul>
+              <li>පන්දුව දෙවරක් බිම bounce වීමට පෙර පහර දිය යුතුය</li>
+              <li>Grand Slam තරගාවලි (Wimbledon, US Open ආදිය) ප්‍රධාන වේ</li>
+            </ul>
+            <button class="btn" style="margin-top:10px;width:100%" onclick="openSportModal('tennis')">සම්පූර්ණ නීති & විස්තරය &rarr;</button>
+          </div>
+        </article>
+
+        <!-- 8. Table Tennis -->
+        <article class="mini-card sport-item" data-cat="racket">
+          <img src="https://images.unsplash.com/photo-1534158914592-062992fbe900?auto=format&fit=crop&w=700&q=80" alt="මේස පන්දු">
+          <div class="mini-body">
+            <h3>🏓 මේස පන්දු (Table Tennis / Ping Pong)</h3>
+            <p><strong>ක්‍රීඩකයින්:</strong> 1 vs 1 හෝ යුගල</p>
+            <p>කුඩා මේසයක් මත දැලට ඉහළින් සැහැල්ලු පන්දුව bounce කරමින් පිත්තෙන් පහරදීම.</p>
+            <ul>
+              <li>ලකුණු 11 ක් පළමුව ලබාගන්නා ක්‍රීඩකයා සෙට් එක දිනයි</li>
+              <li>සෑම ලකුණු 2 කටම වරක් සර්විස් මාරු වේ</li>
+            </ul>
+            <button class="btn" style="margin-top:10px;width:100%" onclick="openSportModal('tabletennis')">සම්පූර්ණ නීති & විස්තරය &rarr;</button>
+          </div>
+        </article>
+
+        <!-- 9. Athletics -->
+        <article class="mini-card sport-item" data-cat="track">
+          <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=700&q=80" alt="මලල ක්‍රීඩා">
+          <div class="mini-body">
+            <h3>🏃 මලල ක්‍රීඩා (Athletics / Track & Field)</h3>
+            <p><strong>අංශ:</strong> ධාවන, පැනීම් සහ විසිකිරීම්</p>
+            <p>100m, 200m, 400m, මැරතන්, දුර පැනීම, උස පැනීම, හෙල්ල විසිකිරීම, යගුලිය විසිකිරීම ඇතුළත් වේ.</p>
+            <ul>
+              <li>False start (වැරදි ආරම්භය) එකක් ලැබුණහොත් තරගයෙන් ඉවත් කෙරේ</li>
+              <li>තමන්ට නියමිත Lane එක තුළ දිවිය යුතුය</li>
+            </ul>
+            <button class="btn" style="margin-top:10px;width:100%" onclick="openSportModal('athletics')">සම්පූර්ණ නීති & විස්තරය &rarr;</button>
+          </div>
+        </article>
+
+        <!-- 10. Swimming -->
+        <article class="mini-card sport-item" data-cat="track">
+          <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=700&q=80" alt="පිහිනීම">
+          <div class="mini-body">
+            <h3>🏊 පිහිනීම (Swimming)</h3>
+            <p><strong>ආකාර:</strong> Freestyle, Breaststroke, Backstroke, Butterfly</p>
+            <p>මීටර් 50 ඔලිම්පික් පිහිනුම් තටාකයක අවම කාලයකින් දුර සම්පූර්ණ කිරීම අරමුණයි.</p>
+            <ul>
+              <li>හැරීමේදී (Turn) නිවැරදි තාක්ෂණයෙන් බිත්තිය ස්පර්ශ කළ යුතුය</li>
+              <li>False start සඳහා ඍජුවම නුසුදුස්සකු කෙරේ</li>
+            </ul>
+            <button class="btn" style="margin-top:10px;width:100%" onclick="openSportModal('swimming')">සම්පූර්ණ නීති & විස්තරය &rarr;</button>
+          </div>
+        </article>
+
+        <!-- 11. Boxing -->
+        <article class="mini-card sport-item" data-cat="combat">
+          <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=700&q=80" alt="බොක්සිං">
+          <div class="mini-body">
+            <h3>🥊 බොක්සිං (Boxing)</h3>
+            <p><strong>ක්‍රීඩකයින්:</strong> 1 vs 1 (රින්ග් එකක් තුළ)</p>
+            <p>ග්ලව්ස් පැළඳ ප්‍රතිවාදියාගේ ඉණෙන් ඉහළ ප්‍රදේශයට නිවැරදි පහරවල් එල්ල කර Knockout (KO) හෝ ලකුණු මගින් ජය ගැනීම.</p>
+            <ul>
+              <li>පිටුපසට හෝ ඉණෙන් පහළට පහරදීම (Low blow) තහනම්</li>
+              <li>වට (Rounds) 3 සිට 12 දක්වා පැවැත්වේ</li>
+            </ul>
+            <button class="btn" style="margin-top:10px;width:100%" onclick="openSportModal('boxing')">සම්පූර්ණ නීති & විස්තරය &rarr;</button>
+          </div>
+        </article>
+
+        <!-- 12. Wrestling & Judo -->
+        <article class="mini-card sport-item" data-cat="combat">
+          <img src="https://images.unsplash.com/photo-1517838277536-f5f99be50185?auto=format&fit=crop&w=700&q=80" alt="මල්ලවපොර">
+          <div class="mini-body">
+            <h3>🥋 ජූඩෝ සහ මල්ලවපොර (Wrestling / Judo)</h3>
+            <p><strong>ක්‍රීඩකයින්:</strong> 1 vs 1</p>
+            <p>ප්‍රතිවාදියා අල්ලා බිම හෙළීම (Throwing), අගුල් දැමීම (Joint locks) හෝ පිට බිම ගැස්සවීම (Pinning) මගින් ජයග්‍රහණය කිරීම.</p>
+            <ul>
+              <li>පහරදීම්, පයින් ගැසීම් සහ භයානක ගෙල සිරකිරීම් තහනම්</li>
+              <li>Ippon (පූර්ණ ලකුණ) ලැබූ විට තරගය ක්ෂණිකව අවසන් වේ</li>
+            </ul>
+            <button class="btn" style="margin-top:10px;width:100%" onclick="openSportModal('wrestling')">සම්පූර්ණ නීති & විස්තරය &rarr;</button>
+          </div>
+        </article>
+
+        <!-- 13. Hockey -->
+        <article class="mini-card sport-item" data-cat="ball">
+          <img src="https://images.unsplash.com/photo-1580748141549-71748dbe0bdc?auto=format&fit=crop&w=700&q=80" alt="හොකී">
+          <div class="mini-body">
+            <h3>🏑 හොකී (Field Hockey)</h3>
+            <p><strong>ක්‍රීඩකයින්:</strong> පිලකට 11 බැගින්</p>
+            <p>වක් වූ පිත්තක් (Stick) මගින් කුඩා තද පන්දුවක් ප්‍රතිවාදී ගෝලයට යොමු කිරීම.</p>
+            <ul>
+              <li>පිත්තේ පැතලි පැත්තෙන් පමණක් පන්දුවට පහර දිය යුතුය</li>
+              <li>පාදයෙන් හෝ ශරීරයෙන් පන්දුව පාලනය තහනම්ය</li>
+            </ul>
+            <button class="btn" style="margin-top:10px;width:100%" onclick="openSportModal('hockey')">සම්පූර්ණ නීති & විස්තරය &rarr;</button>
+          </div>
+        </article>
+
+        <!-- 14. Baseball -->
+        <article class="mini-card sport-item" data-cat="ball">
+          <img src="https://images.unsplash.com/photo-1508344928928-7165b67de128?auto=format&fit=crop&w=700&q=80" alt="බේස්බෝල්">
+          <div class="mini-body">
+            <h3>⚾ බේස්බෝල් (Baseball)</h3>
+            <p><strong>ක්‍රීඩකයින්:</strong> පිලකට 9 බැගින්</p>
+            <p>පන්දු යවන්නා එවන පන්දුවට පිත්තෙන් ගසා Base 4 ක් හරහා දුවගොස් Home plate එකට පැමිණ Run එකක් ගැනීම.</p>
+            <ul>
+              <li>Strike තුනකින් පිතිකරුවා දැවී යයි</li>
+              <li>ඉනිම් 9 කින් තරගය සමන්විත වේ</li>
+            </ul>
+            <button class="btn" style="margin-top:10px;width:100%" onclick="openSportModal('baseball')">සම්පූර්ණ නීති & විස්තරය &rarr;</button>
+          </div>
+        </article>
+
+        <!-- 15. Cycling -->
+        <article class="mini-card sport-item" data-cat="track">
+          <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=700&q=80" alt="පාපැදි">
+          <div class="mini-body">
+            <h3>🚴 පාපැදි ධාවනය (Cycling - Road & Track)</h3>
+            <p><strong>තරග:</strong> මාර්ග (Road race), Velodrome track සහ Mountain bike</p>
+            <p>වේගය, හුස්ම පාලනය සහ උපක්‍රමශීලීව ඉදිරියට පැමිණ අවසන් රේඛාව තරණය කිරීම.</p>
+            <ul>
+              <li>Tour de France යනු ලොව ප්‍රමුඛතම බහු-දින තරගාවලියයි</li>
+              <li>හෙල්මට් පැළඳීම අනිවාර්ය වන අතර ප්‍රතිවාදීන්ට බාධා කිරීම තහනම්</li>
+            </ul>
+            <button class="btn" style="margin-top:10px;width:100%" onclick="openSportModal('cycling')">සම්පූර්ණ නීති & විස්තරය &rarr;</button>
+          </div>
+        </article>
+
+        <!-- 16. Archery & Shooting -->
+        <article class="mini-card sport-item" data-cat="target">
+          <img src="https://images.unsplash.com/photo-1511067007770-944f213a0bbe?auto=format&fit=crop&w=700&q=80" alt="දුනු විදීම">
+          <div class="mini-body">
+            <h3>🎯 දුනු විදීම සහ වෙඩි තැබීම (Archery & Shooting)</h3>
+            <p><strong>ක්‍රමය:</strong> දුනු හී හෝ රයිෆල් මගින් නිශ්චිත ඉලක්කයට විදීම</p>
+            <p>සෙන්ටර් (Bullseye) ලක්ෂ්‍යයට විදීමෙන් උපරිම ලකුණු (10) ලබා ගැනීම.</p>
+            <ul>
+              <li>ශරීරයේ නොසැලෙන සමාධිය සහ ස්ථාවරත්වය අත්‍යවශ්‍ය වේ</li>
+              <li>කාල සීමාවක් තුළ ඊතල විදීම අවසන් කළ යුතුය</li>
+            </ul>
+            <button class="btn" style="margin-top:10px;width:100%" onclick="openSportModal('archery')">සම්පූර්ණ නීති & විස්තරය &rarr;</button>
+          </div>
+        </article>
+
+        <!-- 17. Gymnastics -->
+        <article class="mini-card sport-item" data-cat="track">
+          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=700&q=80" alt="ජිම්නාස්ටික්">
+          <div class="mini-body">
+            <h3>🤸 ජිම්නාස්ටික් (Gymnastics)</h3>
+            <p><strong>අංශ:</strong> Artistic, Rhythmic, Trampoline</p>
+            <p>ශරීරයේ නම්‍යතාව, සමබරතාව, කරණම් සහ පාලනය විනිසුරුවරුන් ලකුණු දීම මගින් ඇගයීමට ලක් කරයි.</p>
+            <ul>
+              <li>බාර්, බැලන්ස් බීම්, වෝල්ට් සහ ෆ්ලෝර් අභ්‍යාස ඇතුළත් වේ</li>
+              <li>Landing එකේදී සමබරව එක් ස්ථානයක නැවතීම (Stick landing) වැදගත්</li>
+            </ul>
+            <button class="btn" style="margin-top:10px;width:100%" onclick="openSportModal('gymnastics')">සම්පූර්ණ නීති & විස්තරය &rarr;</button>
+          </div>
+        </article>
+
+        <!-- 18. Chess -->
+        <article class="mini-card sport-item" data-cat="target">
+          <img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=700&q=80" alt="චෙස්">
+          <div class="mini-body">
+            <h3>♟️ චෙස් (Chess - Mind Sport)</h3>
+            <p><strong>ක්‍රීඩකයින්:</strong> 1 vs 1 (කොටු 64 ලෑල්ලක)</p>
+            <p>බුද්ධිය සහ උපායමාර්ග භාවිත කර ප්‍රතිවාදී රජු කොටු කර Checkmate කිරීම.</p>
+            <ul>
+              <li>ඉත්තන් 16 බැගින් දෙපිලට හිමිවේ</li>
+              <li>Touch-move නීතිය: ඇල්ලූ ඉත්තා අනිවාර්යයෙන් ඇදිය යුතුය</li>
+            </ul>
+            <button class="btn" style="margin-top:10px;width:100%" onclick="openSportModal('chess')">සම්පූර්ණ නීති & විස්තරය &rarr;</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4. MASSAGE TAB ================= -->
+  <section id="massage" class="page-tab">
+    <div class="card">
+      <h2>💆 ක්‍රීඩා සම්බාහන හා තෙරපි වර්ග (Sports Massage & Therapies)</h2>
+      <p>ක්‍රීඩකයන්ගේ මාංශ පේශී ආතතිය සමනය කිරීමට, රුධිර ගමනාගමනය දියුණු කිරීමට සහ ආබාධ අවම කිරීමට යොදාගන්නා සම්බාහන ක්‍රම:</p>
+      <div class="grid">
+        <article class="mini-card">
+          <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=700&q=80" alt="Sports Massage">
+          <div class="mini-body">
+            <h3>Sports Massage (ක්‍රීඩා සම්බාහනය)</h3>
+            <p>ක්‍රීඩා පුහුණුවට පෙර (Pre-event) මාංශ පේශී උණුසුම් කිරීමට සහ තරගයෙන් පසු (Post-event) ලැක්ටික් අම්ලය ඉවත් කර recovery වේගවත් කිරීමට යොදාගනී.</p>
+            <ul>
+              <li>Muscle stiffness සහ soreness අවම කිරීම</li>
+              <li>Flexibility සහ blood circulation වැඩි කිරීම</li>
+              <li>Injury risk අවම කරගැනීමට උපකාරී වීම</li>
+              <li>ක්‍රීඩකයාගේ mental readiness වැඩි කිරීම</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="mini-card">
+          <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=700&q=80" alt="Swedish Massage">
+          <div class="mini-body">
+            <h3>Swedish Massage (ස්වීඩිෂ් සම්බාහනය)</h3>
+            <p>මෘදු සිට මධ්‍යම පීඩනයෙන් relaxation සහ සාමාන්‍ය සුවපහසුව සඳහා භාවිත වන සම්බාහන ක්‍රමයකි. Effleurage (දිගු ස්ට්‍රෝක්) සහ petrissage (kneading) යොදාගනී.</p>
+            <ul>
+              <li>Stress සහ muscle tension අඩු කිරීම</li>
+              <li>Blood circulation දියුණු කිරීම</li>
+              <li>සාමාන්‍ය relaxation සහ sleep quality වැඩි කිරීම</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="mini-card">
+          <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=700&q=80" alt="Deep Tissue Massage">
+          <div class="mini-body">
+            <h3>Deep Tissue Massage (ගැඹුරු පටක සම්බාහනය)</h3>
+            <p>ගැඹුරු පේශී ස්ථර වෙත පීඩනය යොමු කර දිගුකාලීන තදබව, knots සහ postural imbalance සමනය කිරීමට සිදුකරයි.</p>
+            <ul>
+              <li>Chronic tension සහ knots මුදාහැරීම</li>
+              <li>Postural ගැටලු සම්බන්ධ ආතතිය අඩු කිරීම</li>
+              <li>ප්‍රතිකාරයෙන් පසු සාමාන්‍ය light soreness ඇතිවිය හැක</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="mini-card">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=700&q=80" alt="Myofascial Techniques">
+          <div class="mini-body">
+            <h3>Myofascial Techniques</h3>
+            <p>මාංශ පේශී වටා ඇති සම්බන්ධක පටක (Fascia) නිදහස් කිරීම මගින් ශරීර චලන පරාසය (Mobility) ඉහළ නැංවීම.</p>
+            <ul>
+              <li>Movement restriction අඩු කිරීම</li>
+              <li>Mobility සහ tissue flexibility දියුණු කිරීම</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="mini-card">
+          <img src="https://images.unsplash.com/photo-1556760544-74068565f05c?auto=format&fit=crop&w=700&q=80" alt="Trigger Point Therapy">
+          <div class="mini-body">
+            <h3>Trigger Point Therapy</h3>
+            <p>මාංශ පේශීවල හටගන්නා සංවේදී වේදනා ගැට (Trigger points) හඳුනාගෙන target pressure මගින් වේදනාව සමනය කිරීම.</p>
+            <ul>
+              <li>Localized muscle tightness අඩු කිරීම</li>
+              <li>Referred pain patterns සමනය කිරීමට උපකාරී වීම</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="mini-card">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80" alt="Manual Therapy">
+          <div class="mini-body">
+            <h3>Manual Therapy (මැනුවල් තෙරපි)</h3>
+            <p>සන්ධි සහ පටක අතින් චලනය කරමින් (Joint mobilization) ක්‍රියාකාරීත්වය යථා තත්ත්වයට පත් කිරීම.</p>
+            <ul>
+              <li>Joint stiffness සහ movement restriction වැඩිදියුණු කිරීම</li>
+              <li>Function සහ pain management සඳහා supportive approach එකක්</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5. EXERCISE & PT TAB ================= -->
+  <section id="exercise" class="page-tab">
+    <div class="card">
+      <h2>🏃 ශාරීරික අභ්‍යාස සහ පුද්ගලික පුහුණුව (Exercise & PT)</h2>
+      <p style="color:#bcd0de">ශාරීරික යෝග්‍යතාවය ක්‍රමානුකූලව ගොඩනගා ගැනීමට නිවැරදි පිළිවෙල, නිසි හුස්ම ගැනීමේ තාක්ෂණය සහ ආරක්ෂිත පුහුණු රටා අනුගමනය කිරීම අත්‍යවශ්‍ය වේ.</p>
+      
+      <div class="grid">
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=700&q=80" alt="Cardio"><div class="mini-body"><h3>Cardio (හෘද යෝග්‍යතාව)</h3><p>ඇවිදීම, දිවීම, පාපැදි, පිහිනීම මගින් හෘදය හා පෙණහලු ක්‍රියාකාරීත්වය ඉහළ නංවයි.</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=700&q=80" alt="Strength"><div class="mini-body"><h3>Strength (ශක්ති පුහුණුව)</h3><p>ශරීර බර හෝ උපකරණ මගින් පේශී ශක්තිය සහ අස්ථි ඝනත්වය වර්ධනය කරයි.</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=700&q=80" alt="Mobility"><div class="mini-body"><h3>Mobility & Flexibility</h3><p>සන්ධිවල නිදහස් චලනය සහ පේශී ඇදීමේ හැකියාව දියුණු කරන යෝගා සහ ස්ට්‍රෙචින්ග්.</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=700&q=80" alt="Core"><div class="mini-body"><h3>Core Stability</h3><p>උදරය, කොන්ද සහ ශ්‍රෝණිය වටා පේශී ශක්තිමත් කර කොන්දේ වේදනා වළක්වයි.</p></div></div>
+      </div>
+      
+      <h3 style="margin-top:30px;color:var(--primary)">පුද්ගලික පුහුණු මට්ටම් (PT Levels)</h3>
+      <div class="grid" style="margin-top:15px">
+        <div class="mini-card"><div class="mini-body"><h3>ආරම්භක (Beginner)</h3><p>මූලික movement patterns, mobility, light cardio සහ නිවැරදි තාක්ෂණය පුහුණුවීම.</p></div></div>
+        <div class="mini-card"><div class="mini-body"><h3>මධ්‍යම (Intermediate)</h3><p>Strength, endurance සහ ක්‍රීඩාවට අදාළ drills ක්‍රමයෙන් බර වැඩි කරමින් සිදුකිරීම.</p></div></div>
+        <div class="mini-card"><div class="mini-body"><h3>උසස් (Advanced)</h3><p>ක්‍රමානුකූල periodization, structured programming සහ athletic performance tracking.</p></div></div>
+        <div class="mini-card"><div class="mini-body"><h3>Army-style Boot Camp PT</h3><p>ශාරීරික විනය, bodyweight conditioning, දිවීම සහ කණ්ඩායම් ශක්තිය වර්ධනය කරන අභ්‍යාස.</p></div></div>
+      </div>
+
+      <!-- NEW SECTION: WARM-UP & COOL-DOWN DETAILED STEP-BY-STEP -->
+      <h3 style="margin-top:35px;color:var(--accent-gold)">🔄 ඕනෑම ව්‍යායාමයකට පෙර සහ පසු අනුගමනය කළ යුතු විද්‍යාත්මක පිළිවෙල</h3>
+      <div class="grid" style="margin-top:15px">
+        <div class="mini-card">
+          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=700&q=80" alt="Warm-up">
+          <div class="mini-body">
+            <h4 style="color:var(--primary);font-size:18px">පියවර 1: Warm-up (ශරීරය උණුසුම් කිරීම)</h4>
+            <p><strong>කාලය:</strong> විනාඩි 8 - 12</p>
+            <p><strong>ක්‍රියාත්මක කරන ආකාරය:</strong> හෘද ස්පන්දන වේගය හා රුධිර ගමනාගමනය ක්‍රමයෙන් ඉහළ නැංවීමට Dynamic Stretching සිදුකරන්න.</p>
+            <ul>
+              <li><strong>Arm Circles & Shoulder Rolls:</strong> උරහිස් සහ දෑත් ඉදිරියට හා පසුපසට කරකැවීම (තත්පර 30 බැගින්).</li>
+              <li><strong>Torso Twists & Hip Circles:</strong> ඉණ සහ උකුල් සන්ධි දෙපසට චලනය කිරීම.</li>
+              <li><strong>Leg Swings & High Knees:</strong> කකුල් ඉදිරියට පසුපසට පැද්දීම සහ සැහැල්ලු ජොගින්ග් (Jumping Jacks).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=700&q=80" alt="Cool-down">
+          <div class="mini-body">
+            <h4 style="color:var(--primary);font-size:18px">පියවර 3: Cool-down & Static Stretches (විවේක ගැන්වීම)</h4>
+            <p><strong>කාලය:</strong> විනාඩි 5 - 10</p>
+            <p><strong>ක්‍රියාත්මක කරන ආකාරය:</strong> ව්‍යායාම අවසානයේ පේශී තදවීම වැළැක්වීමට ස්ථිතිකව ඇද තබා ගැනීම (Hold for 20-30s).</p>
+            <ul>
+              <li><strong>Hamstring & Quad Stretch:</strong> කකුල පිටුපසට නවා කලව ඉදිරිපස සහ පසුපස දිගහැර තබාගැනීම.</li>
+              <li><strong>Child's Pose & Cobra Stretch:</strong> බිම වැතිරී කොන්ද සහ උදර පේශී සැහැල්ලු කිරීම.</li>
+              <li><strong>Deep Breathing:</strong> ගැඹුරින් හුස්ම ගෙන සිරුර සාමාන්‍ය තත්ත්වයට පත් කිරීම.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="warning">ඕනෑම අභ්‍යාසයක් නිවැරදි තාක්ෂණයෙන්, වයස සහ හැකියාවට ගැළපෙන මට්ටමකින් ආරම්භ කර ක්‍රමයෙන් වැඩි කරන්න.</div>
+    </div>
+  </section>
+
+  <!-- ================= 6. GYM TAB ================= -->
+  <section id="gym" class="page-tab">
+    <div class="card">
+      <h2>🏋️ ජිම් පුහුණුව සහ Weight Training (සම්පූර්ණ පියවර සහ වයස්ගත මාර්ගෝපදේශය)</h2>
+      <p>Warm-up &rarr; නිවැරදි technique &rarr; සුදුසු resistance &rarr; විවේකය &rarr; recovery යන මූලික කරුණු මත පුහුණුව සැලසුම් කළ යුතුය.</p>
+      
+      <!-- AGE BASED WORKOUT CLASSIFICATION -->
+      <h3 style="margin-top:25px;color:var(--accent-gold);border-bottom:2px solid #1b3a4d;padding-bottom:8px">👥 වයස් කාණ්ඩ අනුව ව්‍යායාම සහ ජිම් පිළිවෙල (Age-Appropriate Training)</h3>
+      <div class="grid" style="margin-top:15px">
+        
+        <!-- Age Group 1: 13-19 -->
+        <article class="mini-card" style="border-top:4px solid #3498db">
+          <img src="https://images.unsplash.com/photo-1517838277536-f5f99be50185?auto=format&fit=crop&w=700&q=80" alt="Teens Workout">
+          <div class="mini-body">
+            <span class="badge" style="background:#3498db;color:#fff;font-size:11px">වයස අවුරුදු 13 - 19</span>
+            <h3 style="margin-top:8px">යොවුන් විය (Teens / Youth)</h3>
+            <p><strong>අරමුණ:</strong> අස්ථි සහ පේශී වර්ධනය, ඉරියව් නිවැරදි කිරීම, මනා ශාරීරික විනය.</p>
+            <ul>
+              <li><strong>මූලික අවධානය:</strong> අධික බර එසවීමෙන් වැළකී Bodyweight (ශරීර බර) සහ Light dumbbells භාවිතය.</li>
+              <li><strong>නිර්දේශිත අභ්‍යාස:</strong> Push-ups, Bodyweight Squats, Pull-ups, Planks, කඩිසර ධාවනය.</li>
+              <li><strong>පිළිවෙල:</strong> සතියට දින 3ක්, සෑම අභ්‍යාසයකින්ම Sets 3ක්, Reps 12-15 බැගින්.</li>
+              <li><strong>අවවාදය:</strong> අස්ථි සන්ධි තවමත් වර්ධනය වන බැවින් උපරිම බර (1RM) එසවීමෙන් වළකින්න.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Age Group 2: 20-39 -->
+        <article class="mini-card" style="border-top:4px solid var(--primary)">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=700&q=80" alt="Young Adults Workout">
+          <div class="mini-body">
+            <span class="badge" style="font-size:11px">වයස අවුරුදු 20 - 39</span>
+            <h3 style="margin-top:8px">තරුණ විය (Young Adults)</h3>
+            <p><strong>අරමුණ:</strong> උපරිම මාංශ පේශී වර්ධනය (Hypertrophy), ශක්තිය (Strength) සහ ශරීර හැඩය.</p>
+            <ul>
+              <li><strong>මූලික අවධානය:</strong> Compound Heavy Lifts, Progressive Overload (ක්‍රමයෙන් බර වැඩි කිරීම).</li>
+              <li><strong>නිර්දේශිත Split රටාව:</strong> Push-Pull-Legs හෝ Upper-Lower Split.</li>
+              <li><strong>නිර්දේශිත අභ්‍යාස:</strong> Barbell Squats, Deadlifts, Bench Press, Overhead Press, Heavy Rows.</li>
+              <li><strong>පිළිවෙල:</strong> සතියට දින 4-5ක්, Sets 3-4ක්, Reps 8-12 බැගින්, සෙට් අතර තත්පර 60-90 විවේකය.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Age Group 3: 40-59 -->
+        <article class="mini-card" style="border-top:4px solid var(--accent-gold)">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=700&q=80" alt="Middle Age Workout">
+          <div class="mini-body">
+            <span class="badge" style="background:var(--accent-gold);color:#031019;font-size:11px">වයස අවුරුදු 40 - 59</span>
+            <h3 style="margin-top:8px">මැදි විය (Middle Age Fitness)</h3>
+            <p><strong>අරමුණ:</strong> සන්ධි ආරක්ෂාව, පරිවෘත්තීය ක්‍රියාකාරීත්වය, අස්ථි ඝනත්වය සහ කොන්ද ශක්තිමත් කිරීම.</p>
+            <ul>
+              <li><strong>මූලික අවධානය:</strong> සන්ධිවලට හානි නොවන Cable & Machine අභ්‍යාස සහ Dumbbell resistance.</li>
+              <li><strong>නිර්දේශිත අභ්‍යාස:</strong> Goblet Squats, Lat Pulldowns, Dumbbell Chest Press, Glute Bridges, Plank.</li>
+              <li><strong>පිළිවෙල:</strong> සතියට දින 3-4ක්, Sets 3ක්, Reps 10-15 බැගින් පාලිත වේගයකින් (Slow tempo).</li>
+              <li><strong>අවවාදය:</strong> හෘද වාහිනී සෞඛ්‍යය සඳහා සතියට දින 3ක් විනාඩි 30 බැගින් වේගවත් ඇවිදීම එක්කරන්න.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Age Group 4: 60+ -->
+        <article class="mini-card" style="border-top:4px solid #2ecc71">
+          <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=700&q=80" alt="Seniors Workout">
+          <div class="mini-body">
+            <span class="badge" style="background:#2ecc71;color:#031019;font-size:11px">වයස අවුරුදු 60 ට වැඩි</span>
+            <h3 style="margin-top:8px">ජ්‍යෙෂ්ඨ පුරවැසියන් (Seniors 60+)</h3>
+            <p><strong>අරමුණ:</strong> සමබරතාවය (Balance), සන්ධි චලන පරාසය (Mobility), වැටීම් වැළැක්වීම සහ ස්වාධීනත්වය.</p>
+            <ul>
+              <li><strong>මූලික අවධානය:</strong> Resistance bands (ප්‍රත්‍යාස්ථ පටි), Chair-assisted exercises, සැහැල්ලු බර.</li>
+              <li><strong>නිර්දේශිත අභ්‍යාස:</strong> Chair Squats (පුටුවෙන් නැගිට හිඳගැනීම), Wall Push-ups, Calf Raises, Balance Drills.</li>
+              <li><strong>පිළිවෙල:</strong> සතියට දින 2-3ක්, Sets 2ක්, Reps 10-12 බැගින් ඉතා ලිහිල්ව.</li>
+              <li><strong>අවවාදය:</strong> හදිසි ගැස්සීම් සහ බර උස්සා හුස්ම අල්ලාගෙන සිටීමෙන් වළකින්න.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- DETAILED STEP-BY-STEP GYM EXERCISES WITH PHOTOS & TECHNIQUE -->
+      <h3 style="margin-top:35px;color:var(--primary);border-bottom:2px solid #1b3a4d;padding-bottom:8px">💪 ප්‍රධාන ජිම් අභ්‍යාස නිවැරදිව සිදුකරන ආකාරය (Step-by-Step Exercise Guide)</h3>
+      <div class="grid" style="margin-top:15px">
+
+        <!-- 1. Squat -->
+        <article class="mini-card">
+          <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=700&q=80" alt="Squat">
+          <div class="mini-body">
+            <h3>1. Squat (ස්කොට් - පාද සහ තට්ටම් සඳහා)</h3>
+            <p><strong>ඉලක්ක පේශී:</strong> Quadriceps (ඉදිරි කලව), Glutes (තට්ටම්), Hamstrings, Core.</p>
+            <p><strong>ගහන නිවැරදි පිළිවෙල:</strong></p>
+            <ul>
+              <li><strong>ආරම්භය:</strong> දෙපා උරහිස් පළලට තබා, ඇඟිලි තරමක් පිටතට හරවන්න (15-30°). පපුව ඉදිරියට තබා කොන්ද කෙළින් තබාගන්න.</li>
+              <li><strong>පහළට යාම (Inhale):</strong> පුටුවක වාඩිවන්නාක් මෙන් ඉණ පිටුපසට යවමින් දණහිස් නමන්න. කලව බිමට සමාන්තර වන තෙක් පහත් වන්න.</li>
+              <li><strong>ඉහළට එසවීම (Exhale):</strong> විලුඹ මත පීඩනය යොදමින් ආරම්භක ස්ථානයට පැමිණෙන්න.</li>
+              <li><strong>වැළකිය යුතු වැරදි:</strong> දණහිස් ඇතුළට නැවීම, විලුඹ බිමෙන් එසවීම, කොන්ද ඉදිරියට නැමීම.</li>
+              <li><strong>Sets & Reps:</strong> ආරම්භකයින්ට 3 x 10-12 | පළපුරුදු අයට 4 x 8-10.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 2. Bench Press / Push-up -->
+        <article class="mini-card">
+          <img src="https://images.unsplash.com/photo-1598971639058-fab3c3109a00?auto=format&fit=crop&w=700&q=80" alt="Push-up / Bench Press">
+          <div class="mini-body">
+            <h3>2. Bench Press / Push-up (පපුව සහ අත් සඳහා)</h3>
+            <p><strong>ඉලක්ක පේශී:</strong> Pectorals (පපුව), Anterior Deltoid (උරහිස්), Triceps.</p>
+            <p><strong>ගහන නිවැරදි පිළිවෙල:</strong></p>
+            <ul>
+              <li><strong>ආරම්භය:</strong> බංකුව මත වැතිරී උරහිස් පළලට වඩා තරමක් පළලින් බාබලය අල්ලාගන්න (Bench Press) හෝ බිම දෑත් තබන්න (Push-up).</li>
+              <li><strong>පහළට ගෙන ඒම (Inhale):</strong> වැලමිට අංශක 45-75 ක කෝණයක තබාගනිමින් පපුවේ මැද ප්‍රදේශය තෙක් බාබලය පාලිතව පහත් කරන්න.</li>
+              <li><strong>ඉහළට තල්ලු කිරීම (Exhale):</strong> පපුවේ මාංශ පේශී තද කරමින් බර ඉහළට තල්ලු කරන්න (වැලමිට තදින් lock නොකරන්න).</li>
+              <li><strong>වැළකිය යුතු වැරදි:</strong> වැලමිට උරහිස් මට්ටමට කෙළින් තබාගැනීම (Shoulder impingement අවදානම).</li>
+              <li><strong>Sets & Reps:</strong> 3-4 Sets x 8-12 Reps.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 3. Deadlift -->
+        <article class="mini-card">
+          <img src="https://images.unsplash.com/photo-1517838277536-f5f99be50185?auto=format&fit=crop&w=700&q=80" alt="Deadlift">
+          <div class="mini-body">
+            <h3>3. Deadlift (ඩෙඩ්ලිෆ්ට් - සම්පූර්ණ පිටුපස සිරුර)</h3>
+            <p><strong>ඉලක්ක පේශී:</strong> Hamstrings, Glutes, Lower Back, Traps, Forearms.</p>
+            <p><strong>ගහන නිවැරදි පිළිවෙල:</strong></p>
+            <ul>
+              <li><strong>ආරම්භය:</strong> බාබලය පාදවල මැදට ඉහළින් තබා දෙපා ඉණ පළලට තබන්න. ඉණ පසුපසට කර (Hinge) බාබලය අල්ලාගන්න.</li>
+              <li><strong>පපුව එසවීම:</strong> උරහිස් පිටුපසට කර කොන්දේ ස්වාභාවික වක්‍රය රඳවා ගන්න.</li>
+              <li><strong>බර එසවීම (Exhale):</strong> පාදවලින් බිම තල්ලු කරමින් කෙළින් නැගී සිටින්න. ඉණ ඉදිරියට ගෙනවිත් තට්ටම් තද කරන්න.</li>
+              <li><strong>වැළකිය යුතු වැරදි:</strong> කොන්ද වටකුරු කිරීම (Cat back), බර සිරුරෙන් ඈතින් තබා එසවීම.</li>
+              <li><strong>Sets & Reps:</strong> 3-4 Sets x 6-8 Reps (ආරක්ෂිත බරකින් පමණක්).</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 4. Lat Pulldown / Bent-over Row -->
+        <article class="mini-card">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=700&q=80" alt="Row / Lat Pulldown">
+          <div class="mini-body">
+            <h3>4. Lat Pulldown & Row (පිටුපස සහ බයිසෙප් සඳහා)</h3>
+            <p><strong>ඉලක්ක පේශී:</strong> Latissimus Dorsi (Lats), Rhomboids, Biceps.</p>
+            <p><strong>ගහන නිවැරදි පිළිවෙල:</strong></p>
+            <ul>
+              <li><strong>ආරම්භය:</strong> අත් පළලින් බාර් එක අල්ලා පපුව තරමක් ඉදිරියට නැඹුරු කර හිඳගන්න.</li>
+              <li><strong>පහළට ඇදීම (Exhale):</strong> උරහිස් තල (Scapula) එකට එකතු කරමින් බාර් එක උඩු පපුව තෙක් පහළට අදින්න.</li>
+              <li><strong>ආපසු මුදාහැරීම (Inhale):</strong> පාලිත වේගයකින් අත් සම්පූර්ණයෙන්ම දිගහරින්න.</li>
+              <li><strong>වැළකිය යුතු වැරදි:</strong> සිරුර පිටුපසට අධිකව පද්දමින් බර ඇදීම (Momentum භාවිතය).</li>
+              <li><strong>Sets & Reps:</strong> 3 Sets x 10-12 Reps.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 5. Overhead Shoulder Press -->
+        <article class="mini-card">
+          <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=700&q=80" alt="Overhead Press">
+          <div class="mini-body">
+            <h3>5. Overhead Dumbbell Press (උරහිස් සඳහා)</h3>
+            <p><strong>ඉලක්ක පේශී:</strong> Anterior & Lateral Deltoids, Triceps, Upper Chest.</p>
+            <p><strong>ගහන නිවැරදි පිළිවෙල:</strong></p>
+            <ul>
+              <li><strong>ආරම්භය:</strong> ඩම්බල් දෙක කන් මට්ටමේ තබා වැලමිට අංශක 90 ක් වන සේ රඳවාගන්න. උදරය තද කරගන්න.</li>
+              <li><strong>ඉහළට එසවීම (Exhale):</strong> ඩම්බල් දෙක හිසට ඉහළින් එකතු වන සේ තල්ලු කරන්න.</li>
+              <li><strong>පහළට ගෙන ඒම (Inhale):</strong> සෙමින් නැවත කන් මට්ටමට පහත් කරන්න.</li>
+              <li><strong>වැළකිය යුතු වැරදි:</strong> කොන්ද පිටුපසට අධිකව නැවීම (Arching lower back).</li>
+              <li><strong>Sets & Reps:</strong> 3 Sets x 10-12 Reps.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 6. Core Plank & Russian Twist -->
+        <article class="mini-card">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=700&q=80" alt="Core Plank">
+          <div class="mini-body">
+            <h3>6. Plank & Core Stability (උදරය සහ ශක්තිමත් කොන්ද)</h3>
+            <p><strong>ඉලක්ක පේශී:</strong> Rectus Abdominis, Transverse Abdominis, Obliques, Lower Back.</p>
+            <p><strong>ගහන නිවැරදි පිළිවෙල:</strong></p>
+            <ul>
+              <li><strong>ප්ලෑන්ක් ඉරියව්ව:</strong> වැලමිට සහ පාදවල ඇඟිලි මත ශරීර බර රඳවා හිසේ සිට විලුඹ දක්වා සරල රේඛාවක් සාදන්න.</li>
+              <li><strong>තද කර තබාගැනීම:</strong> උදර පේශී සහ තට්ටම් තදින් තබාගෙන සාමාන්‍ය පරිදි හුස්ම ගන්න.</li>
+              <li><strong>කාලසීමාව:</strong> තත්පර 30 සිට 60 දක්වා රඳවා තබාගන්න (3 වතාවක්).</li>
+              <li><strong>වැළකිය යුතු වැරදි:</strong> ඉණ බිමට කඩා වැටීම හෝ ඉණ අධිකව උඩට එසවීම.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- WORKOUT SPLIT ROUTINE TABLE -->
+      <h3 style="margin-top:35px;color:var(--accent-gold)">📅 සතියකට නිර්දේශිත සම්පූර්ණ ජිම් කාලසටහන (Weekly Gym Split Schedule)</h3>
+      <div style="overflow-x:auto;margin-top:15px">
+        <table style="width:100%;border-collapse:collapse;text-align:left;background:#091a27;border-radius:12px;overflow:hidden">
+          <thead>
+            <tr style="background:#102a3c;color:var(--primary);border-bottom:2px solid var(--border-color)">
+              <th style="padding:12px 16px">දිනය</th>
+              <th style="padding:12px 16px">ඉලක්ක මාංශ පේශී</th>
+              <th style="padding:12px 16px">ප්‍රධාන අභ්‍යාස පෙළගැස්ම</th>
+              <th style="padding:12px 16px">Sets & Reps</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #1c3f56">
+              <td style="padding:12px 16px;font-weight:bold;color:#78e6d0">සඳුදා (Push Day)</td>
+              <td style="padding:12px 16px">පපුව, උරහිස්, Triceps</td>
+              <td style="padding:12px 16px">Bench Press, Dumbbell Shoulder Press, Incline Dumbbell Press, Tricep Dips/Pushdowns</td>
+              <td style="padding:12px 16px">3-4 Sets x 8-12</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1c3f56">
+              <td style="padding:12px 16px;font-weight:bold;color:#78e6d0">අඟහරුවාදා (Pull Day)</td>
+              <td style="padding:12px 16px">පිටුපස (Back), Biceps, පසුපස උරහිස්</td>
+              <td style="padding:12px 16px">Deadlift, Lat Pulldown, Seated Cable Row, Bicep Dumbbell Curls, Face Pulls</td>
+              <td style="padding:12px 16px">3-4 Sets x 8-12</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1c3f56">
+              <td style="padding:12px 16px;font-weight:bold;color:#ffc857">බදාදා (Rest & Recovery)</td>
+              <td style="padding:12px 16px">විවේකය & Mobility</td>
+              <td style="padding:12px 16px">සැහැල්ලු ඇවිදීම, Foam rolling, යෝගා හා සම්බාහනය</td>
+              <td style="padding:12px 16px">විනාඩි 30-40</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1c3f56">
+              <td style="padding:12px 16px;font-weight:bold;color:#78e6d0">බ්‍රහස්පතින්දා (Legs & Core)</td>
+              <td style="padding:12px 16px">කලව, තට්ටම්, කෙණ්ඩ, උදරය</td>
+              <td style="padding:12px 16px">Barbell Squats, Romanian Deadlift, Leg Press, Calf Raises, Plank</td>
+              <td style="padding:12px 16px">3-4 Sets x 10-15</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1c3f56">
+              <td style="padding:12px 16px;font-weight:bold;color:#78e6d0">සිකුරාදා (Upper Body / Functional)</td>
+              <td style="padding:12px 16px">සම්පූර්ණ උඩුකය & කඩිසර බව</td>
+              <td style="padding:12px 16px">Pull-ups/Push-ups, Dumbbell Rows, Lateral Raises, Hammer Curls</td>
+              <td style="padding:12px 16px">3 Sets x 10-12</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;font-weight:bold;color:#ff6b6b">සෙනසුරාදා & ඉරිදා</td>
+              <td style="padding:12px 16px">සම්පූර්ණ සුවය (Full Recovery)</td>
+              <td style="padding:12px 16px">නින්ද, ප්‍රෝටීන් පෝෂණය, සැහැල්ලු පිහිනීම හෝ ඇවිදීම</td>
+              <td style="padding:12px 16px">පැය 8 ක සුවබර නින්දක්</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="warning" style="margin-top:25px">
+        <strong>⚠️ විශේෂ උපදේශන සටහන:</strong> බර එසවීමේදී කිසිවිටෙක අනුන් හා තරඟයට නොගොස් තමාට පාලනය කළ හැකි බරකින් ආරම්භ කරන්න. ව්‍යායාම කරන විට හුස්ම පිටතට දැමීම (Exhale on exertion) සහ පහත් කිරීමේදී හුස්ම ඇතුළට ගැනීම (Inhale) අනුගමනය කරන්න.
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 7. NUTRITION TAB ================= -->
+  <section id="food" class="page-tab">
+    <div class="card">
+      <h2>🥗 ආහාර හා පෝෂණ විද්‍යාව (Nutrition & Diet)</h2>
+      <div class="grid">
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=700&q=80" alt="ප්‍රෝටීන්"><div class="mini-body"><h3>ප්‍රෝටීන් (Protein)</h3><p>බිත්තර, මාළු, කුකුළු මස්, පරිප්පු, කඩල, සෝයා මගින් පේශී අලුත්වැඩියාව හා වර්ධනය සිදු කරයි.</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=700&q=80" alt="කාබෝහයිඩ්‍රේට්"><div class="mini-body"><h3>සංකීර්ණ කාබෝහයිඩ්‍රේට් (Complex Carbs)</h3><p>නිවුඩු බත්, ඕට්ස්, අල, කුරක්කන් මගින් ශරීරයට සහ ව්‍යායාම සඳහා අවශ්‍ය දිගුකාලීන ශක්තිය සපයයි.</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=700&q=80" alt="එළවළු හා පලතුරු"><div class="mini-body"><h3>එළවළු, පලතුරු & විටමින්</h3><p>ක්ෂුද්‍ර පෝෂක (Micronutrients), ප්‍රතිඔක්සිකාරක සහ තන්තු (Fibers) සිරුරේ ප්‍රතිශක්තිය රැකීමට උපකාරී වේ.</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=700&q=80" alt="ජලය"><div class="mini-body"><h3>ජලය (Hydration)</h3><p>ශරීරයේ පරිවෘත්තීය ක්‍රියා සඳහා දිනකට අවම ජලය ලීටර් 2.5 - 3.5 ක් පානය කිරීම අත්‍යවශ්‍ය වේ.</p></div></div>
+      </div>
+      <p class="warning">බර අඩු කිරීම සඳහා දැඩි ආහාර සීමා, meal skipping හෝ අනාරක්ෂිත ඖෂධ භාවිත නොකරන්න. සමබල ආහාර වේලක් දිගුකාලීන නිරෝගීභාවයට හේතු වේ.</p>
+    </div>
+  </section>
+
+  <!-- ================= 8. HEALTH TAB ================= -->
+  <section id="health" class="page-tab">
+    <div class="card">
+      <h2>🩺 ශරීරයේ පොදු රෝග, තුවාල හා ප්‍රථමාධාර</h2>
+      <div class="grid">
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=700&q=80" alt="මාංශ පේශී strain"><div class="mini-body"><h3>මාංශ පේශී ඇදීම (Muscle Strain)</h3><p>පේශියකට අධික ආතතියක් හෝ හදිසි චලනයක් හේතුවෙන් පේශී කෙඳි ඉරී යාම. විවේකය සහ අයිස් තැබීම වැදගත්ය.</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=700&q=80" alt="Sprain"><div class="mini-body"><h3>වළලුකර පෙරළීම (Ankle Sprain)</h3><p>සන්ධියක බන්ධනී (Ligaments) ඇදීම හෝ ඉරීම. R.I.C.E. (Rest, Ice, Compression, Elevation) ක්‍රමය අනුගමනය කරන්න.</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=700&q=80" alt="කොන්දේ වේදනාව"><div class="mini-body"><h3>කොන්දේ වේදනාව (Lower Back Pain)</h3><p>නුසුදුසු ඉරියව්, දුර්වල core පේශී හෝ disc ගැටලු නිසා හටගනී. සුදුසු ව්‍යායාම සහ postural correction අවශ්‍ය වේ.</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80" alt="අධි රුධිර පීඩනය"><div class="mini-body"><h3>අධි රුධිර පීඩනය (Hypertension)</h3><p>නිහඬ මාරයා ලෙස හඳුන්වයි. නිතිපතා aerobic ව්‍යායාම සහ ලුණු භාවිතය අවම කිරීමෙන් පාලනය කළ හැක.</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=700&q=80" alt="දියවැඩියාව"><div class="mini-body"><h3>දියවැඩියාව (Type 2 Diabetes)</h3><p>ශරීරයේ ඉන්සියුලින් සංවේදීතාව අඩු වීම. ව්‍යායාම මගින් පේශී සෛල ග්ලූකෝස් උරා ගැනීම වේගවත් කරයි.</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=700&q=80" alt="හෘද සෞඛ්‍යය"><div class="mini-body"><h3>හෘද හා ශ්වසන ගැටලු</h3><p>පපුවේ දැඩි වේදනාවක්, හුස්ම ගැනීමේ දැඩි අපහසුතාවක් ඇති වුවහොත් වහාම හදිසි වෛද්‍ය ප්‍රතිකාර (1990) වෙත යොමු වන්න.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 9. GLOBAL THERAPIES TAB ================= -->
+  <section id="global-therapies" class="page-tab">
+    <div class="card">
+      <h2>🌍 ලෝකයේ ප්‍රධාන සම්බාහන, තෙරපි සහ Complementary Therapy පුස්තකාලය</h2>
+      <div style="background:#102638;padding:18px;border-radius:12px;margin-bottom:20px;border-left:4px solid var(--primary)">
+        <p>ලෝකයේ ප්‍රචලිත සාම්ප්‍රදායික හා නවීන therapeutic ක්‍රම පිළිබඳ විද්‍යාත්මක හැඳින්වීමක් මෙහි අන්තර්ගත වේ.</p>
+      </div>
+      <div class="grid">
+        <article class="mini-card"><img src="https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=700&q=80" alt="කප්පින් තෙරපි"><div class="mini-body"><span class="badge" style="font-size:11px;margin-bottom:8px">Cupping</span><h3>කප්පින් තෙරපි (Cupping)</h3><p>සම මත කෝප්ප මගින් suction ඇති කර රුධිර ගමනාගමනය උත්තේජනය කිරීමේ පැරණි ක්‍රමයකි. Dry සහ Wet cupping ලෙස පවතී.</p></div></article>
+        <article class="mini-card"><img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=700&q=80" alt="කටු තෙරපි"><div class="mini-body"><span class="badge" style="font-size:11px;margin-bottom:8px">Acupuncture</span><h3>කටු තෙරපි (Acupuncture)</h3><p>සිහින් ජීවානුහරණය කළ ඉඳිකටු ශරීරයේ නිශ්චිත ලක්ෂ්‍යයන්ට ඇතුළත් කර ස්නායු හා වේදනා සමනය කරන සම්ප්‍රදායික චීන ක්‍රමයකි.</p></div></article>
+        <article class="mini-card"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=700&q=80" alt="තායි සම්බාහනය"><div class="mini-body"><span class="badge" style="font-size:11px;margin-bottom:8px">Thai Massage</span><h3>තායි සම්බාහනය (Thai Massage)</h3><p>පැසිව් ස්ට්‍රෙචින්ග් (Passive stretching) සහ ශරීරයේ ශක්ති මාර්ග ඔස්සේ පීඩනය යෙදීම ඒකාබද්ධ වූ යෝගා හා සමාන ක්‍රමයකි.</p></div></article>
+        <article class="mini-card"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=700&q=80" alt="Shiatsu"><div class="mini-body"><span class="badge" style="font-size:11px;margin-bottom:8px">Shiatsu</span><h3>ෂියට්සු (Shiatsu)</h3><p>ජපානයේ සම්භවය වූ ඇඟිලි පීඩනය (Finger pressure) මගින් සිරුරේ ශක්ති සමතුලිතතාව ඇති කරන ක්‍රමයකි.</p></div></article>
+        <article class="mini-card"><img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=700&q=80" alt="Hot Stone"><div class="mini-body"><span class="badge" style="font-size:11px;margin-bottom:8px">Thermal</span><h3>Hot Stone Massage</h3><p>උණුසුම් ගිනිකඳු පාෂාණ (Basalt stones) ශරීරයේ ස්ථානගත කර තාපය මගින් ගැඹුරු පේශී ලිහිල් කිරීම.</p></div></article>
+        <article class="mini-card"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=700&q=80" alt="Tai Chi"><div class="mini-body"><span class="badge" style="font-size:11px;margin-bottom:8px">Mind-Body</span><h3>තායි චී සහ චීගොං (Tai Chi & Qigong)</h3><p>මන්දගාමී පාලිත චලනයන්, ගැඹුරු හුස්ම ගැනීම සහ මනසේ ඒකාග්‍රතාව මගින් ආතතිය දුරලන ක්‍රමවේදයකි.</p></div></article>
+      </div>
+
+
+      <!-- ================= CUPPING THERAPY: DETAILED VISUAL GUIDE ================= -->
+      <div class="card cupping-guide-card" style="margin-top:28px;border:2px solid var(--primary);background:linear-gradient(145deg,#0a1724,#102638)">
+        <span class="badge">CUPPING THERAPY • VISUAL STEP GUIDE</span>
+        <h2 style="margin-top:12px">🫧 කපින් තෙරපි (Cupping Therapy) — මුල සිට අන්තය දක්වා</h2>
+        <p>මෙම කොටස කපින් තෙරපි පිළිබඳ අධ්‍යාපනික දෘශ්‍ය මාර්ගෝපදේශයකි. රූප එක් එක් අදියර පැහැදිලි කිරීමට යොදා ඇත.</p>
+        <div class="warning" style="margin-top:16px">
+          <strong>⚠️ ඉතා වැදගත් ආරක්ෂිත සටහන:</strong>
+          Wet Cupping / Hijama (සම කැපීම හා ලේ ඉවත් කිරීම) සහ Fire Cupping වෘත්තීය පුහුණුවක් හා සුදුසු ආරක්ෂිත ක්‍රම අවශ්‍ය ක්‍රියා වේ. ඒවා ඔබම නිවසේදී කරන්න එපා. පහත තොරතුරු අධ්‍යාපනික ක්‍රියාවලි දළ විස්තරයක් පමණි.
+        </div>
+
+        <div class="grid cupping-step-grid" style="margin-top:22px">
+          <article class="mini-card">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=85" alt="කපින් තෙරපි සඳහා තීරණය සහ තක්සේරුව">
+            <div class="mini-body"><span class="badge">01</span><h3>මුලින්ම තීරණය කරන්න</h3>
+              <p>කපින් තෙරපි යොදාගන්නා අරමුණ, Dry හෝ Wet Cupping වර්ගය සහ ආරක්ෂිත සුදුසුකම් පළමුව තක්සේරු කරයි.</p>
+              <ul><li>වේදනාව / මස් පේශි ආතතිය වැනි අරමුණ හඳුනාගැනීම</li><li>කපින් නොකළ යුතු තත්ත්ව තිබේදැයි පරීක්ෂා කිරීම</li><li>Wet Cupping සඳහා සුදුසු වෘත්තිකයෙකු තෝරාගැනීම</li></ul>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <img src="https://images.unsplash.com/photo-1584467735871-1f12a5a7b1b1?auto=format&fit=crop&w=900&q=85" alt="කපින් උපකරණ සූදානම් කිරීම">
+            <div class="mini-body"><span class="badge">02</span><h3>අවශ්‍ය දේ සූදානම් කිරීම</h3>
+              <p>පිරිසිදු කප්, අවශ්‍ය suction උපකරණ, පිරිසිදු කිරීමේ ද්‍රාවණ, අත්වැසුම්, gauze/රෙදි සහ අපද්‍රව්‍ය බඳුන වැනි දේ සූදානම් කරයි.</p>
+              <ul><li>භාවිතයට පෙර උපකරණ පිරිසිදු බව පරීක්ෂා කිරීම</li><li>Wet Cupping සඳහා sterile single-use උපකරණ වෘත්තිකයෙකු පමණක් භාවිත කිරීම</li></ul>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <img src="https://images.unsplash.com/photo-1580281657527-47f249e8f0c0?auto=format&fit=crop&w=900&q=85" alt="පිරිසිදු සහ ආරක්ෂිත පරිසරය">
+            <div class="mini-body"><span class="badge">03</span><h3>පරිසරය සකසන්න</h3>
+              <p>නිශ්ශබ්ද, උණුසුම්, පිරිසිදු සහ හොඳ ආලෝකයක් ඇති ස්ථානයක් සකස් කර රෝගියාට සුවපහසු ඉරියව්වක් ලබාදෙයි.</p>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=900&q=85" alt="අත් සෝදා අත්වැසුම් පැළඳීම">
+            <div class="mini-body"><span class="badge">04</span><h3>චිකිත්සක සූදානම</h3>
+              <p>අත් සනීපාරක්ෂාව, පිරිසිදු අත්වැසුම් සහ පිරිසිදු වැඩපිළිවෙලක් පවත්වාගැනීම මූලික ආරක්ෂිත පියවර වේ.</p>
+              <ul><li>අත් සබන් සහ වතුරෙන් පිරිසිදු කිරීම</li><li>අවශ්‍ය විට පිරිසිදු අත්වැසුම් භාවිත කිරීම</li><li>සම් ආසාදනයක් හෝ උණක් ඇති විට ප්‍රතිකාරය කල් දැමීම</li></ul>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=900&q=85" alt="රෝගියාගේ ඉතිහාසය සහ අවසරය">
+            <div class="mini-body"><span class="badge">05</span><h3>රෝගියා සූදානම් කරන්න</h3>
+              <p>ප්‍රතිකාරයට පෙර සෞඛ්‍ය ඉතිහාසය අසා අවසරය ලබාගෙන, සුදුසු සහ සුවපහසු ඉරියව්වක් සකස් කරයි.</p>
+              <ul><li>ලේ ගැලීම් ආබාධ සහ blood-thinning medicines ගැන විමසීම</li><li>හෘද, වකුගඩු, අක්මා රෝග සහ දියවැඩියාව ගැන විමසීම</li><li>ගැබ් ගැනීම, පිළිකා, සම් ආසාදන සහ උණ වැනි තත්ත්ව සලකා බැලීම</li></ul>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=900&q=85" alt="කපින් කරන ස්ථානය තෝරාගැනීම">
+            <div class="mini-body"><span class="badge">06</span><h3>කපින් කරන ස්ථානය තෝරන්න</h3>
+              <p>සුදුසු මස් පේශි ප්‍රදේශය පරීක්ෂා කර, තුවාල, ආසාදන හෝ අවදානම් ස්ථාන මඟහරියි.</p>
+              <ul><li>පිට, උරහිස, අත් සහ කකුල් වැනි සුදුසු ප්‍රදේශ වෘත්තිකයා තෝරාගනී</li><li>තුවාල, ආසාදිත සම සහ පැහැදිලිව පෙනෙන ධමනි/නහර වැනි ප්‍රදේශ මඟහරියි</li><li>ඇස්, කන්, නාසය වටා සහ ලිංගික ප්‍රදේශ වැනි අවදානම් ස්ථාන භාවිත නොකරයි</li></ul>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <img src="https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=900&q=85" alt="සම පිරිසිදු කර සූදානම් කිරීම">
+            <div class="mini-body"><span class="badge">07</span><h3>සම සූදානම් කිරීම</h3>
+              <p>කපින් කිරීමට පෙර ප්‍රදේශය පරීක්ෂා කර පිරිසිදු කරයි. Dry cupping එකේදී අවශ්‍ය නම් සුදුසු lubricant එකක් වෘත්තිකයා භාවිත කරයි.</p>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=900&q=85" alt="කප් එක තැබීම">
+            <div class="mini-body"><span class="badge">08</span><h3>කප් එක තැබීම</h3>
+              <p>සුදුසු ප්‍රමාණයේ කප් එකක් තෝරා suction ක්‍රමයට අනුව කප් එක ස්ථානගත කරයි. අධික වේදනාවක් හෝ දැවිල්ලක් ඇති වුවහොත් වහාම නවත්වයි.</p>
+              <div class="warning" style="margin:10px 0 0"><strong>🔥 Fire Cupping:</strong> ගිනි භාවිත කරන ක්‍රමය පිළිබඳ ස්වයං-ක්‍රියාත්මක උපදෙස් මෙහි නොදේ; එය පුහුණු වෘත්තිකයෙකුගේ සේවය පමණක් විය යුතුය.</div>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=85" alt="කප් තබා නිරීක්ෂණය කිරීම">
+            <div class="mini-body"><span class="badge">09</span><h3>කප් තබා නිරීක්ෂණය කරන්න</h3>
+              <p>ප්‍රතිකාරය අතරතුර රෝගියාගේ සුවපහසුව සහ සමේ ප්‍රතිචාරය නිරීක්ෂණය කරයි. වේදනාව, දැවිල්ල, කරකැවිල්ල, හුස්ම ගැනීමේ අපහසුව හෝ වෙනත් අසාමාන්‍ය ලක්ෂණ ඇත්නම් වහාම නවත්වයි.</p>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85" alt="කප් ඉවත් කිරීම">
+            <div class="mini-body"><span class="badge">10</span><h3>කප් ඉවත් කිරීම</h3>
+              <p>සuction seal එක ආරක්ෂිතව නිදහස් කර කප් එක සෙමින් ඉවත් කර ප්‍රදේශය පිරිසිදු කරයි. තාවකාලික රතු/දම් පැහැති ලකුණු ඇතිවිය හැක.</p>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&q=85" alt="කපින් පසු සත්කාර">
+            <div class="mini-body"><span class="badge">11</span><h3>පසු සත්කාර</h3>
+              <p>ප්‍රතිකාර කළ ප්‍රදේශය පිරිසිදුව තබා සිරුරේ ප්‍රතිචාරය නිරීක්ෂණය කරයි. දිගටම පවතින හෝ දරුණු වේදනාව, උණ, සැරව, බිබිලි වැනි ලක්ෂණ ඇතිවුවහොත් වෛද්‍ය උපදෙස් ලබාගන්න.</p>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=85" alt="කපින් උපකරණ පිරිසිදු කිරීම">
+            <div class="mini-body"><span class="badge">12</span><h3>උපකරණ පිරිසිදු කිරීම</h3>
+              <p>භාවිත කළ උපකරණ නිෂ්පාදක උපදෙස් සහ ආරක්ෂිත infection-control ක්‍රම අනුව පිරිසිදු කර වියළා ගබඩා කරයි. Wet Cupping හි single-use sharps ආරක්ෂිත sharps container එකකට වෘත්තිකයෙකු විසින් දමයි.</p>
+            </div>
+          </article>
+        </div>
+
+        <div style="margin-top:26px;background:#0a1724;border:1px solid #1c3d52;border-radius:16px;padding:22px">
+          <h3 style="color:var(--accent-gold)">📋 කෙටි සාරාංශය</h3>
+          <p style="font-size:16px">තීරණය සහ තක්සේරුව → උපකරණ සූදානම → පරිසරය සකස් කිරීම → අත් සනීපාරක්ෂාව → රෝගියා සූදානම් කිරීම → ස්ථානය තෝරාගැනීම → සම සූදානම් කිරීම → කප් ස්ථානගත කිරීම → නිරීක්ෂණය → ආරක්ෂිතව ඉවත් කිරීම → පසු සත්කාර → උපකරණ පිරිසිදු කිරීම.</p>
+        </div>
+
+        <div class="warning" style="margin-top:20px">
+          <strong>🩺 Wet Cupping / Hijama:</strong> මෙහිදී සම කැපීම සහ ලේ ඉවත් කිරීම ඇතුළත් විය හැකි බැවින්, පුහුණු හා සුදුසුකම් ලත් වෘත්තිකයෙකුගේ සේවය පමණක් ලබාගන්න. ආසාදන, ලේ ගැලීම සහ සමට හානි වීම වැනි අවදානම් නිසා ඔබම නිවසේදී නොකරන්න.
+        </div>
+
+        <div class="warning" style="border-left-color:var(--accent-red);margin-top:16px">
+          <strong>🚨 වහාම නවත්වන්න / වෛද්‍ය උපදෙස් ගන්න:</strong>
+          දරුණු වේදනාව, දැඩි දැවිල්ල, කරකැවිල්ල හෝ ක්ලාන්තය, හුස්ම ගැනීමේ අපහසුව, උණ, සැරව, බිබිලි, සම් ආසාදන ලක්ෂණ හෝ අසාමාන්‍ය ලේ ගැලීමක් ඇති වුවහොත් වහාම වෘත්තීය වෛද්‍ය උපදෙස් ලබාගන්න.
+        </div>
+      </div>
+      <div class="warning"><strong>⚠️ ආරක්ෂිත සටහන:</strong> කප්පින්, කටු චිකිත්සාව හෝ spinal manipulation වැනි ක්‍රම නිවසේදී තනිව අත්හදා නොබලන්න. සුදුසුකම් ලත් වෘත්තිකයෙකුගේ සේවය පමණක් ලබාගන්න.</div>
+    </div>
+  </section>
+
+  <!-- ================= NEW: BODY & SKELETON ANATOMY TAB ================= -->
+  <section id="anatomy" class="page-tab">
+    <div class="card">
+      <span class="badge">HUMAN ANATOMY GUIDE</span>
+      <h2 style="margin-top:10px">🧍 ශරීරයේ කොටස් රූප සටහන (Body Parts Diagram)</h2>
+      <p>පහත රූප සටහනේ ලකුණු කර ඇති අංක සිරුරේ ප්‍රධාන කොටස් දක්වයි. එක් එක් අංකයට අදාළ විස්තරය දකුණු පස ලැයිස්තුවේ බලන්න.</p>
+      <div class="anatomy-wrap" style="margin-top:20px">
+        <div class="anatomy-svg-box">
+          <svg viewBox="0 0 340 640" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:340px">
+            <circle cx="140" cy="55" r="36" fill="#0f2436" stroke="#19d3ae" stroke-width="2.5"/>
+            <line x1="140" y1="91" x2="140" y2="116" stroke="#19d3ae" stroke-width="20" stroke-linecap="round"/>
+            <rect x="98" y="100" width="84" height="170" rx="30" fill="#0f2436" stroke="#19d3ae" stroke-width="2.5"/>
+            <line x1="95" y1="122" x2="55" y2="205" stroke="#19d3ae" stroke-width="20" stroke-linecap="round"/>
+            <line x1="55" y1="205" x2="45" y2="290" stroke="#19d3ae" stroke-width="17" stroke-linecap="round"/>
+            <line x1="185" y1="122" x2="225" y2="205" stroke="#19d3ae" stroke-width="20" stroke-linecap="round"/>
+            <line x1="225" y1="205" x2="235" y2="290" stroke="#19d3ae" stroke-width="17" stroke-linecap="round"/>
+            <line x1="120" y1="268" x2="110" y2="410" stroke="#19d3ae" stroke-width="24" stroke-linecap="round"/>
+            <line x1="160" y1="268" x2="170" y2="410" stroke="#19d3ae" stroke-width="24" stroke-linecap="round"/>
+            <line x1="110" y1="410" x2="105" y2="558" stroke="#19d3ae" stroke-width="19" stroke-linecap="round"/>
+            <line x1="170" y1="410" x2="175" y2="558" stroke="#19d3ae" stroke-width="19" stroke-linecap="round"/>
+            <ellipse cx="100" cy="575" rx="18" ry="9" fill="#0f2436" stroke="#19d3ae" stroke-width="2"/>
+            <ellipse cx="180" cy="575" rx="18" ry="9" fill="#0f2436" stroke="#19d3ae" stroke-width="2"/>
+
+            <line class="anatomy-leader" x1="176" y1="50" x2="270" y2="45"/>
+            <line class="anatomy-leader" x1="150" y1="108" x2="270" y2="100"/>
+            <line class="anatomy-leader" x1="188" y1="128" x2="270" y2="135"/>
+            <line class="anatomy-leader" x1="182" y1="165" x2="270" y2="170"/>
+            <line class="anatomy-leader" x1="232" y1="235" x2="270" y2="230"/>
+            <line class="anatomy-leader" x1="182" y1="230" x2="270" y2="265"/>
+            <line class="anatomy-leader" x1="168" y1="272" x2="270" y2="300"/>
+            <line class="anatomy-leader" x1="168" y1="345" x2="270" y2="350"/>
+            <line class="anatomy-leader" x1="172" y1="410" x2="270" y2="410"/>
+            <line class="anatomy-leader" x1="174" y1="480" x2="270" y2="470"/>
+            <line class="anatomy-leader" x1="178" y1="570" x2="270" y2="555"/>
+
+            <g><circle class="anatomy-marker-circle" cx="283" cy="45" r="13"/><text class="anatomy-marker-text" x="283" y="46">1</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="100" r="13"/><text class="anatomy-marker-text" x="283" y="101">2</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="135" r="13"/><text class="anatomy-marker-text" x="283" y="136">3</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="170" r="13"/><text class="anatomy-marker-text" x="283" y="171">4</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="230" r="13"/><text class="anatomy-marker-text" x="283" y="231">5</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="265" r="13"/><text class="anatomy-marker-text" x="283" y="266">6</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="300" r="13"/><text class="anatomy-marker-text" x="283" y="301">7</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="350" r="13"/><text class="anatomy-marker-text" x="283" y="351">8</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="410" r="13"/><text class="anatomy-marker-text" x="283" y="411">9</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="470" r="13"/><text class="anatomy-marker-text" x="283" y="471">10</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="555" r="14"/><text class="anatomy-marker-text" x="283" y="556">11</text></g>
+          </svg>
+        </div>
+        <div class="anatomy-part-list">
+          <div class="anatomy-part-item"><span class="anatomy-num">1</span><div><h3 style="margin:0 0 4px">හිස (Head)</h3><p style="margin:0">මොළය, ඇස්, කන්, නාසය සහ මුඛය පිහිටි, ශරීරයේ සියලු ක්‍රියාකාරකම් පාලනය කරන ප්‍රධාන කේන්ද්‍රස්ථානය.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">2</span><div><h3 style="margin:0 0 4px">ගෙල (Neck)</h3><p style="margin:0">හිස සහ සිරුර සම්බන්ධ කරන, ග්‍රීවා කශේරුකා (Cervical vertebrae) හා ශ්වසන නාළය ඇතුළත් කොටස.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">3</span><div><h3 style="margin:0 0 4px">උරහිස් (Shoulders)</h3><p style="margin:0">අත් සිරුර සමඟ සම්බන්ධ කරන, විශාල චලන පරාසයක් ඇති සංකීර්ණ සන්ධි ප්‍රදේශය.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">4</span><div><h3 style="margin:0 0 4px">පපුව / ළය (Chest)</h3><p style="margin:0">හෘදය සහ පෙනහළු ආරක්ෂා කරන, ඉළ ඇට කූඩුවෙන් වට වූ ප්‍රදේශය.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">5</span><div><h3 style="margin:0 0 4px">අත් - බාහුව සහ මිටිය (Arm)</h3><p style="margin:0">උරහිසේ සිට වැලමිට දක්වා (බාහුව) සහ වැලමිටේ සිට මිටිය දක්වා වූ කොටස්, එසවීම් හා අල්ලාගැනීම් සඳහා යොදාගනී.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">6</span><div><h3 style="margin:0 0 4px">උදරය (Abdomen)</h3><p style="margin:0">ආහාර දිරවීමේ අවයව පිහිටි, core මාංශ පේශී මගින් ආරක්ෂා වූ ප්‍රදේශය.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">7</span><div><h3 style="margin:0 0 4px">ඉණ / තට්ටම් (Hips)</h3><p style="margin:0">උඩුකය සහ පාද අතර සම්බන්ධකය වන අතර, ශරීරයේ බර වඩාත් රැඳී පවතින ප්‍රදේශයයි.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">8</span><div><h3 style="margin:0 0 4px">කලවා (Thigh)</h3><p style="margin:0">ශරීරයේ බලවත්ම මාංශ පේශී කණ්ඩායම් (Quadriceps, Hamstrings) පිහිටි ප්‍රදේශය.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">9</span><div><h3 style="margin:0 0 4px">දණහිස (Knee)</h3><p style="margin:0">කලවාව සහ කකුල සම්බන්ධ කරන, ඇවිදීමේදී වැඩිම බරක් දරන සංකීර්ණ සන්ධියකි.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">10</span><div><h3 style="margin:0 0 4px">කෙණ්ඩය (Calf)</h3><p style="margin:0">ඇවිදීම, දිවීම හා පැනීමේදී ප්‍රධාන වන පසුපස කකුල් මාංශ පේශී ප්‍රදේශය.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">11</span><div><h3 style="margin:0 0 4px">පාදය (Foot)</h3><p style="margin:0">ශරීරයේ මුළු බරම දරාගෙන, ඇවිදීමට හා සමතුලිතතාවයට අවශ්‍ය පදනම සපයන කොටස.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge">SKELETAL SYSTEM</span>
+      <h2 style="margin-top:10px">🦴 අස්ථි කොටස් රූප සටහන (Skeleton Diagram)</h2>
+      <p>මිනිස් සිරුරේ අස්ථි 206 කින් සමන්විත වන අතර, ප්‍රධාන අස්ථි කොටස් පහත රූප සටහනේ ලකුණු කර ඇත.</p>
+      <div class="anatomy-wrap" style="margin-top:20px">
+        <div class="anatomy-svg-box">
+          <svg viewBox="0 0 340 640" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:340px">
+            <circle cx="140" cy="52" r="30" fill="#e9eef2" stroke="#78e6d0" stroke-width="2"/>
+            <line x1="140" y1="84" x2="140" y2="270" stroke="#e9eef2" stroke-width="8" stroke-dasharray="9,4" stroke-linecap="round"/>
+            <line x1="95" y1="100" x2="185" y2="100" stroke="#e9eef2" stroke-width="6" stroke-linecap="round"/>
+            <path d="M110,112 Q140,128 110,150" fill="none" stroke="#e9eef2" stroke-width="3"/>
+            <path d="M170,112 Q140,128 170,150" fill="none" stroke="#e9eef2" stroke-width="3"/>
+            <path d="M107,135 Q140,153 107,175" fill="none" stroke="#e9eef2" stroke-width="3"/>
+            <path d="M173,135 Q140,153 173,175" fill="none" stroke="#e9eef2" stroke-width="3"/>
+            <path d="M105,158 Q140,178 105,200" fill="none" stroke="#e9eef2" stroke-width="3"/>
+            <path d="M175,158 Q140,178 175,200" fill="none" stroke="#e9eef2" stroke-width="3"/>
+            <line x1="95" y1="102" x2="60" y2="195" stroke="#e9eef2" stroke-width="7" stroke-linecap="round"/>
+            <line x1="185" y1="102" x2="220" y2="195" stroke="#e9eef2" stroke-width="7" stroke-linecap="round"/>
+            <line x1="58" y1="196" x2="48" y2="285" stroke="#e9eef2" stroke-width="4"/>
+            <line x1="63" y1="196" x2="53" y2="285" stroke="#e9eef2" stroke-width="4"/>
+            <line x1="222" y1="196" x2="232" y2="285" stroke="#e9eef2" stroke-width="4"/>
+            <line x1="217" y1="196" x2="227" y2="285" stroke="#e9eef2" stroke-width="4"/>
+            <path d="M108,270 L172,270 L182,300 L98,300 Z" fill="#e9eef2" stroke="#78e6d0" stroke-width="2"/>
+            <line x1="120" y1="298" x2="112" y2="415" stroke="#e9eef2" stroke-width="9" stroke-linecap="round"/>
+            <line x1="160" y1="298" x2="168" y2="415" stroke="#e9eef2" stroke-width="9" stroke-linecap="round"/>
+            <circle cx="112" cy="418" r="7" fill="#e9eef2" stroke="#78e6d0" stroke-width="1.5"/>
+            <circle cx="168" cy="418" r="7" fill="#e9eef2" stroke="#78e6d0" stroke-width="1.5"/>
+            <line x1="108" y1="422" x2="103" y2="555" stroke="#e9eef2" stroke-width="5"/>
+            <line x1="116" y1="422" x2="110" y2="555" stroke="#e9eef2" stroke-width="4"/>
+            <line x1="164" y1="422" x2="170" y2="555" stroke="#e9eef2" stroke-width="5"/>
+            <line x1="172" y1="422" x2="177" y2="555" stroke="#e9eef2" stroke-width="4"/>
+            <path d="M90,558 L120,558 L128,572 L85,572 Z" fill="#e9eef2" stroke="#78e6d0" stroke-width="1.5"/>
+            <path d="M160,558 L190,558 L195,572 L153,572 Z" fill="#e9eef2" stroke="#78e6d0" stroke-width="1.5"/>
+
+            <line class="anatomy-leader" x1="168" y1="45" x2="270" y2="42"/>
+            <line class="anatomy-leader" x1="146" y1="150" x2="270" y2="95"/>
+            <line class="anatomy-leader" x1="150" y1="100" x2="270" y2="135"/>
+            <line class="anatomy-leader" x1="175" y1="150" x2="270" y2="172"/>
+            <line class="anatomy-leader" x1="210" y1="150" x2="270" y2="215"/>
+            <line class="anatomy-leader" x1="228" y1="240" x2="270" y2="255"/>
+            <line class="anatomy-leader" x1="180" y1="285" x2="270" y2="292"/>
+            <line class="anatomy-leader" x1="168" y1="360" x2="270" y2="335"/>
+            <line class="anatomy-leader" x1="168" y1="418" x2="270" y2="405"/>
+            <line class="anatomy-leader" x1="172" y1="480" x2="270" y2="460"/>
+            <line class="anatomy-leader" x1="177" y1="565" x2="270" y2="530"/>
+
+            <g><circle class="anatomy-marker-circle" cx="283" cy="42" r="13"/><text class="anatomy-marker-text" x="283" y="43">1</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="95" r="13"/><text class="anatomy-marker-text" x="283" y="96">2</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="135" r="13"/><text class="anatomy-marker-text" x="283" y="136">3</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="172" r="13"/><text class="anatomy-marker-text" x="283" y="173">4</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="215" r="13"/><text class="anatomy-marker-text" x="283" y="216">5</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="255" r="13"/><text class="anatomy-marker-text" x="283" y="256">6</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="292" r="13"/><text class="anatomy-marker-text" x="283" y="293">7</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="335" r="13"/><text class="anatomy-marker-text" x="283" y="336">8</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="405" r="13"/><text class="anatomy-marker-text" x="283" y="406">9</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="460" r="13"/><text class="anatomy-marker-text" x="283" y="461">10</text></g>
+            <g><circle class="anatomy-marker-circle" cx="283" cy="530" r="14"/><text class="anatomy-marker-text" x="283" y="531">11</text></g>
+          </svg>
+        </div>
+        <div class="anatomy-part-list">
+          <div class="anatomy-part-item"><span class="anatomy-num">1</span><div><h3 style="margin:0 0 4px">හිස් කබල (Skull)</h3><p style="margin:0">මොළය ආරක්ෂා කරන අස්ථි 22 කින් සමන්විත ව්‍යූහයයි.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">2</span><div><h3 style="margin:0 0 4px">කශේරුකා දණ්ඩ (Vertebral Column)</h3><p style="margin:0">කශේරුකා 33 කින් සමන්විත වූ, සිරුරේ ප්‍රධාන සහාය කුලුනුව සහ ස්නායු කම්බිය ආරක්ෂා කරන කොටස.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">3</span><div><h3 style="margin:0 0 4px">රාක්ක අස්ථිය සහ උරහිස් තලය (Clavicle & Scapula)</h3><p style="margin:0">උරහිස් සන්ධිය සාදන අස්ථි, අත් සිරුර සිරුරට සම්බන්ධ කරයි.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">4</span><div><h3 style="margin:0 0 4px">ඉළ ඇට කූඩුව (Rib Cage)</h3><p style="margin:0">යුගල 12 කින් සමන්විත වූ, හෘදය හා පෙනහළු ආරක්ෂා කරන කූඩුව.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">5</span><div><h3 style="margin:0 0 4px">බාහු අස්ථිය (Humerus)</h3><p style="margin:0">උරහිසේ සිට වැලමිට දක්වා වූ, අත් සිරුරේ දිගම අස්ථිය.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">6</span><div><h3 style="margin:0 0 4px">රේඩියස් සහ අල්නා (Radius & Ulna)</h3><p style="margin:0">වැලමිටේ සිට මිටිය දක්වා සමාන්තරව පිහිටි මිටියේ අස්ථි දෙක.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">7</span><div><h3 style="margin:0 0 4px">ශ්‍රෝණි අස්ථිය (Pelvis)</h3><p style="margin:0">උඩුකයේ බර පහළ සිරුරට හා පාදවලට රැගෙන යන, බඳේ පිහිටි ශක්තිමත් අස්ථි ව්‍යූහය.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">8</span><div><h3 style="margin:0 0 4px">කලවා අස්ථිය (Femur)</h3><p style="margin:0">මිනිස් සිරුරේ දිගම හා ශක්තිමත්ම අස්ථිය, ශරීර බර වැඩිපුරම දරයි.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">9</span><div><h3 style="margin:0 0 4px">දණහිස් තැටිය (Patella)</h3><p style="margin:0">දණහිස ඉදිරිපසින් ආරක්ෂා කරන කුඩා, ත්‍රිකෝණාකාර අස්ථිය.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">10</span><div><h3 style="margin:0 0 4px">ටිබියා සහ ෆිබියුලා (Tibia & Fibula)</h3><p style="margin:0">දණහිසේ සිට වළලුකර දක්වා වූ කකුලේ අස්ථි දෙක.</p></div></div>
+          <div class="anatomy-part-item"><span class="anatomy-num">11</span><div><h3 style="margin:0 0 4px">පාද අස්ථි (Foot Bones)</h3><p style="margin:0">Tarsals, Metatarsals සහ Phalanges ලෙස කුඩා අස්ථි 26 කින් සමන්විත වූ, බර හා සමතුලිතතාවය දරන කොටස.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NEW: TOOLS TAB (STOPWATCH + DISTANCE) ================= -->
+  <section id="tools" class="page-tab">
+    <div class="card">
+      <span class="badge">FITNESS TOOLS</span>
+      <h2 style="margin-top:10px">⏱️ ස්ටොප් වොච් එක (Stopwatch)</h2>
+      <p>ඔබගේ ව්‍යායාම, ධාවන කාලය හෝ විවේක කාලය නිවැරදිව මැනීමට Lap පහසුකම සහ ශබ්ද ඇඟවීම සහිත ස්ටොප් වොච් එකක්.</p>
+      <div class="stopwatch-display" id="stopwatchDisplay">00:00:00.00</div>
+      <div class="tool-btn-row">
+        <button class="btn" id="swStartBtn" onclick="toggleStopwatch()">▶️ ආරම්භ කරන්න (Start)</button>
+        <button class="btn btn-outline" onclick="lapStopwatch()">🚩 Lap ගන්න</button>
+        <button class="btn btn-outline" onclick="resetStopwatch()">🔄 යළි සකසන්න (Reset)</button>
+      </div>
+      <div id="lapListContainer" style="margin-top:20px"></div>
+    </div>
+
+    <div class="card">
+      <span class="badge">GPS DISTANCE TRACKER</span>
+      <h2 style="margin-top:10px">📍 කිලෝමීටර් දුර මනින්නය (Distance Tracker)</h2>
+      <p>ඇවිදින හෝ දුවන විට ඔබ ගමන් කරන දුර කිලෝමීටර වලින් GPS මගින් ස්වයංක්‍රීයව මනිනු ලබන අතර, සෑම සම්පූර්ණ කිලෝමීටරයක්ම හඬින් සිංහලෙන් දැනුම් දෙනු ලැබේ.</p>
+      <div class="distance-display">
+        <div class="distance-value" id="distanceValue">0.00 කි.මී.</div>
+        <p id="distanceStatus" style="color:#8aa2b8;margin-top:8px">GPS එක සකස් කර නැත</p>
+      </div>
+      <div class="tool-btn-row">
+        <button class="btn" id="distStartBtn" onclick="startDistanceTracking()">▶️ ආරම්භ කරන්න (Start)</button>
+        <button class="btn btn-outline" id="distStopBtn" onclick="stopDistanceTracking()" disabled>⏹️ නවත්වන්න (Stop)</button>
+        <button class="btn btn-outline" onclick="resetDistanceTracking()">🔄 යළි සකසන්න (Reset)</button>
+      </div>
+      <div class="warning" style="margin-top:18px">📡 මෙය ක්‍රියාත්මක කිරීමට ඔබගේ බ්‍රව්සරයේ Location (ස්ථානගත කිරීමේ) අවසරය ලබා දිය යුතුය. හොඳම නිරවද්‍යතාව සඳහා එළිමහනේදී භාවිත කරන්න.</div>
+    </div>
+  </section>
+
+  <!-- ================= 10. PHOTO GALLERY TAB ================= -->
+  <section id="gallery" class="page-tab">
+    <div class="card">
+      <span class="badge">📸 HIGH DEFINITION PHOTO VAULT</span>
+      <h2 style="margin-top:10px">සියලුම ප්‍රධාන අංශ නිරූපණය වන ඡායාරූප එකතුව</h2>
+      <p>ක්‍රීඩා, කායවර්ධන, සම්බාහන, පෝෂණ හා ප්‍රතිකාර ක්‍රම සඳහා වූ නිවැරදි HD ඡායාරූප පෙළගැස්ම.</p>
+      <div class="grid">
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=700&q=80" alt="Therapy"><div class="mini-body"><h3>සම්බාහන Therapy</h3><p>සුවපහසු සුවතා සම්බාහනය</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1556760544-74068565f05c?auto=format&fit=crop&w=700&q=80" alt="Sports Massage"><div class="mini-body"><h3>Sports Massage</h3><p>ක්‍රීඩකයන්ගේ මාංශ පේශී ප්‍රතිකාර</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80" alt="Physiotherapy"><div class="mini-body"><h3>Physiotherapy</h3><p>පුනරුත්ථාපනය සහ චලන පුහුණුව</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=700&q=80" alt="Fitness"><div class="mini-body"><h3>Exercise & Fitness</h3><p>සාමාන්‍ය ශාරීරික යෝග්‍යතාව</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=700&q=80" alt="Strength"><div class="mini-body"><h3>Strength Training</h3><p>ශක්තිජනක ජිම් ව්‍යායාම</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=700&q=80" alt="Running"><div class="mini-body"><h3>Running & Athletics</h3><p>ධාවනය සහ හෘද යෝග්‍යතාව</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=700&q=80" alt="Swimming"><div class="mini-body"><h3>Swimming Fitness</h3><p>සම්පූර්ණ ශරීර ජල අභ්‍යාස</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=700&q=80" alt="Cycling"><div class="mini-body"><h3>Cycling Endurance</h3><p>පාපැදි ශක්ති පුහුණුව</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=700&q=80" alt="Yoga"><div class="mini-body"><h3>Yoga & Mobility</h3><p>නම්‍යතාව සහ සන්සුන් මනස</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=700&q=80" alt="Nutrition"><div class="mini-body"><h3>Balanced Nutrition</h3><p>සමබල ආහාර වේල</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=700&q=80" alt="Hydration"><div class="mini-body"><h3>Hydration</h3><p>පිරිසිදු ජල පරිභෝජනය</p></div></div>
+        <div class="mini-card"><img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=700&q=80" alt="Athletic Sports"><div class="mini-body"><h3>Global Sports</h3><p>ජාත්‍යන්තර ක්‍රීඩා ලෝකය</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 11. CONTACT TAB ================= -->
+  <section id="contact" class="page-tab">
+    <div class="card" style="max-width:700px;margin:auto;text-align:center">
+      <h2>සෘජුව සම්බන්ධ වන්න</h2>
+      <div style="border-radius:15px;overflow:hidden;margin:20px auto;max-width:400px">
+        <img src="assets/sports-hotline.png" alt="Sports Hotline" style="width:100%;height:auto;object-fit:contain;display:block">
+      </div>
+      <p style="font-size:18px;margin-bottom:20px">ක්‍රීඩා සම්බාහන උපදේශන, ශාරීරික යෝග්‍යතා වැඩසටහන් සහ තුවාල කළමනාකරණය සඳහා අමතන්න:</p>
+      
+      <div style="display:flex;justify-content:center;gap:15px;flex-wrap:wrap">
+        <a class="btn" href="tel:0765356680" style="font-size:16px;padding:12px 25px">📞 ඇමතුමක් ලබාදෙන්න (076 535 6680)</a>
+        <a class="btn" href="https://wa.me/94765356680" target="_blank" rel="noopener" style="font-size:16px;padding:12px 25px;background:#25D366;color:#fff">💬 WhatsApp පණිවිඩයක් එවන්න</a>
+      </div>
+      <p style="margin-top:25px;font-size:13px;color:#8aa2b8">ස්ථානය: කොළඹ සහ බස්නාහිර පළාත තුළ පෞද්ගලික පුහුණු හා සම්බාහන සේවා සඳහා වේලාවක් වෙන්කරවා ගත හැක.</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================= SPORT DETAIL MODAL (DETAILED RULES & HOW TO PLAY) ================= -->
+<div id="sportModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeSportModal()">&times;</span>
+    <div id="sportModalBody"></div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Fitness & Sports Instructor • Sports Massage & Global Athletic Fitness Hub</p>
+  <p style="font-size:13px;margin-top:6px">සෞඛ්‍ය තොරතුරු අධ්‍යාපනික අරමුණින් පමණි. රෝග හඳුනාගැනීම හෝ ප්‍රතිකාර සඳහා සුදුසුකම් ලත් වෛද්‍යවරයෙකු හමුවන්න.</p>
+</footer>
+
+<script>
+// Tab Switching (Each tab behaves like an individual independent page)
+function switchTab(tabId){
+  const tabs = document.querySelectorAll('.page-tab');
+  tabs.forEach(t => t.classList.remove('active'));
+  
+  const buttons = document.querySelectorAll('nav .tab-btn');
+  buttons.forEach(b => b.classList.remove('active'));
+
+  const targetTab = document.getElementById(tabId);
+  if(targetTab){
+    targetTab.classList.add('active');
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  // Set active button
+  buttons.forEach(b => {
+    if(b.getAttribute('onclick').includes(tabId)){
+      b.classList.add('active');
+    }
+  });
+}
+
+// Height conversion functions
+function toggleHeightInput(){
+  const type = document.querySelector('input[name="heightType"]:checked').value;
+  if(type === 'ft'){
+    document.getElementById('feetInputContainer').style.display = 'flex';
+    document.getElementById('cmInputContainer').style.display = 'none';
+    syncFromFeet();
+  } else {
+    document.getElementById('feetInputContainer').style.display = 'none';
+    document.getElementById('cmInputContainer').style.display = 'block';
+    syncFromCm();
+  }
+}
+
+function syncFromFeet(){
+  const ft = parseFloat(document.getElementById('bmiFeet').value) || 0;
+  const inch = parseFloat(document.getElementById('bmiInches').value) || 0;
+  if(ft > 0 || inch > 0){
+    const totalInches = (ft * 12) + inch;
+    const cm = totalInches * 2.54;
+    document.getElementById('autoCmDisplay').value = cm.toFixed(1);
+    document.getElementById('bmiDirectCm').value = cm.toFixed(1);
+  }
+}
+
+function syncFromCm(){
+  const cm = parseFloat(document.getElementById('bmiDirectCm').value) || 0;
+  if(cm > 0){
+    const totalInches = cm / 2.54;
+    const ft = Math.floor(totalInches / 12);
+    const inch = Math.round(totalInches % 12);
+    document.getElementById('autoFeetDisplay').textContent = 'අඩි ' + ft + ' අඟල් ' + inch + ' ට සමාන වේ';
+    document.getElementById('bmiFeet').value = ft;
+    document.getElementById('bmiInches').value = inch;
+    document.getElementById('autoCmDisplay').value = cm.toFixed(1);
+  }
+}
+
+// Complete Full Body Analysis Calculation
+function calculateCompleteHealthProfile(){
+  const weight = parseFloat(document.getElementById('bmiWeight').value);
+  let heightCm = 0;
+  const heightType = document.querySelector('input[name="heightType"]:checked').value;
+
+  if(heightType === 'ft'){
+    const ft = parseFloat(document.getElementById('bmiFeet').value) || 0;
+    const inch = parseFloat(document.getElementById('bmiInches').value) || 0;
+    if(ft === 0 && inch === 0){
+      alert('කරුණාකර ඔබගේ උස අඩි සහ අඟල් වලින් ඇතුළත් කරන්න.');
+      return;
+    }
+    heightCm = ((ft * 12) + inch) * 2.54;
+  } else {
+    heightCm = parseFloat(document.getElementById('bmiDirectCm').value) || 0;
+  }
+
+  const age = parseInt(document.getElementById('bmiAge').value) || 25;
+  const gender = document.getElementById('bmiGender').value;
+
+  if(!weight || weight <= 15 || heightCm <= 50){
+    alert('කරුණාකර නිවැරදි බර සහ උස අගයන් ලබා දෙන්න.');
+    return;
+  }
+
+  const heightM = heightCm / 100;
+  const bmi = weight / (heightM * heightM);
+
+  // Ideal weight range based on BMI 18.5 - 24.9
+  const minIdealWeight = (18.5 * (heightM * heightM)).toFixed(1);
+  const maxIdealWeight = (24.9 * (heightM * heightM)).toFixed(1);
+
+  // BMR Calculation (Mifflin-St Jeor Equation)
+  let bmr = (10 * weight) + (6.25 * heightCm) - (5 * age);
+  bmr = (gender === 'male') ? bmr + 5 : bmr - 161;
+  const tdee = Math.round(bmr * 1.4); // Moderate activity factor
+
+  // Water requirement (kg * 0.035)
+  const water = (weight * 0.035).toFixed(1);
+
+  // Status and Plans
+  let statusText = '';
+  let statusColor = '';
+  let pinPercent = 0;
+  let weightDiffText = '';
+  let dietPlan = '';
+  let workoutPlan = '';
+
+  if(bmi < 18.5){
+    statusText = '⚠️ අඩු බර තත්ත්වය (Underweight)';
+    statusColor = '#3498db';
+    pinPercent = Math.max(5, (bmi / 18.5) * 20);
+    const needed = (minIdealWeight - weight).toFixed(1);
+    weightDiffText = 'ඔබ නිරෝගී බර මට්ටමට පැමිණීමට තව කිලෝග්‍රෑම් ' + needed + ' ක් පමණ බර වැඩි කරගත යුතුය.';
+    
+    dietPlan = `<ul>
+      <li><strong>කැලරි වැඩිකිරීම (Calorie Surplus):</strong> දිනපතා ඔබේ නඩත්තු කැලරි ප්‍රමාණයට වඩා 400-500 kcal වැඩියෙන් ලබාගන්න.</li>
+      <li><strong>ප්‍රෝටීන් බහුල ආහාර:</strong> රටකජු, කජු, කඩල, බිත්තර, මාළු, සම්පූර්ණ යොදය සහිත කිරි, සෝයා ආහාර වේලට එක්කරන්න.</li>
+      <li><strong>සංකීර්ණ කාබෝහයිඩ්‍රේට්:</strong> බත්, අල, බතල, ඕට්ස්, කෙසෙල් දිනපතා වේල් 4-5 කට බෙදා ආහාරයට ගන්න.</li>
+      <li><strong>නිරෝගී මේද:</strong> රටකජු බටර් (Peanut butter), අලිගැටපේර සහ ඔලිව් තෙල්.</li>
+    </ul>`;
+
+    workoutPlan = `<ul>
+      <li><strong>Hypertrophy (පේෂී වර්ධන) පුහුණුව:</strong> සතියට දින 3-4 ක් Compound gym exercises (Squats, Deadlifts, Bench press) සිදුකරන්න.</li>
+      <li><strong>අධික Cardio සීමා කරන්න:</strong> දිගු දුර දිවීමෙන් වැළැක්වී මාංශ පේශී ගොඩනැගීමට මුල්තැන දෙන්න.</li>
+      <li><strong>ප්‍රමාණවත් විවේකය:</strong> මාංශ පේශී වර්ධනය වන්නේ විවේකයේදී බැවින් දිනකට පැය 8 ක සුවබර නින්දක් ලබාගන්න.</li>
+    </ul>`;
+
+  } else if(bmi >= 18.5 && bmi <= 24.9){
+    statusText = '✅ නිරෝගී සහ සුදුසු බර (Normal Weight)';
+    statusColor = '#2ecc71';
+    pinPercent = 25 + ((bmi - 18.5) / 6.4) * 25;
+    weightDiffText = 'සුබ පැතුම්! ඔබගේ ශරීර බර උසට ඉතාමත් නිවැරදිව පවතී. මෙම තත්ත්වය දිගටම පවත්වා ගන්න.';
+
+    dietPlan = `<ul>
+      <li><strong>සමබල ආහාර රටාව (Maintenance):</strong> පිඟානෙන් 1/2 එළවළු/පලතුරු, 1/4 ප්‍රෝටීන්, 1/4 සංකීර්ණ කාබෝහයිඩ්‍රේට් ලෙස සකසා ගන්න.</li>
+      <li>සීනි සහිත පැණි බීම, අතිරික්ත තෙල් සහ fast food භාවිතය හැකිතාක් පාලනය කරන්න.</li>
+      <li>දිනකට අවශ්‍ය ප්‍රමාණවත් ජලය (ලීටර් ${water}) අනිවාර්යයෙන් පානය කරන්න.</li>
+    </ul>`;
+
+    workoutPlan = `<ul>
+      <li><strong>ක්‍රියාශීලී පැවැත්ම:</strong> සතියට දින 3-5 ක් aerobic cardio (ඇවිදීම/දිවීම/පිහිනීම) විනාඩි 30-45 බැගින් කරන්න.</li>
+      <li><strong>Strength & Flexibility:</strong> පේශී ශක්තිය සඳහා bodyweight හෝ gym workouts සහ యෝගා/ස්ට්‍රෙචින්ග් එකතු කරගන්න.</li>
+    </ul>`;
+
+  } else if(bmi >= 25.0 && bmi <= 29.9){
+    statusText = '⚠️ අධික බර තත්ත්වය (Overweight)';
+    statusColor = '#f39c12';
+    pinPercent = 55 + ((bmi - 25) / 4.9) * 20;
+    const excess = (weight - maxIdealWeight).toFixed(1);
+    weightDiffText = 'ඔබ නිරෝගී බර සීමාවට පැමිණීමට කිලෝග්‍රෑම් ' + excess + ' ක බරක් අඩු කරගත යුතුව ඇත.';
+
+    dietPlan = `<ul>
+      <li><strong>කැලරි හිඟය (Calorie Deficit):</strong> ඔබේ දෛනික කැලරි අවශ්‍යතාවයෙන් 300-400 kcal පමණ අඩු කර පාලනය කරන්න.</li>
+      <li><strong>සීනි සහ පිරිපහදු පිටි නැවැත්වීම:</strong> බීම වර්ග, බේකරි කෑම, කෙටි කෑම සහ අමතර තෙල් මුළුමනින්ම සීමා කරන්න.</li>
+      <li><strong>තන්තු (Fiber) වැඩි කිරීම:</strong> කොළ එළවළු, සලාද වර්ග ආහාර වේලට පෙර ලබාගැනීමෙන් බඩ පිරීමේ හැඟීම ඇතිවේ.</li>
+      <li>රාත්‍රී ආහාරය නිදාගැනීමට පැය 2-3 කට පෙර සැහැල්ලුවෙන් ලබාගන්න.</li>
+    </ul>`;
+
+    workoutPlan = `<ul>
+      <li><strong>Fat Burning Cardio:</strong> සතියට දින 5 ක් විනාඩි 45 බැගින් brisk walking (වේගයෙන් ඇවිදීම), cycling හෝ swimming කරන්න.</li>
+      <li><strong>HIIT & Circuit Training:</strong> කෙටි කාලයකදී වැඩි කැලරි ප්‍රමාණයක් දහනය වන අභ්‍යාස.</li>
+      <li><strong>Full Body Resistance:</strong> බර අඩු වන විට පේශී දියවීම වැළැක්වීමට dumbbells හෝ bodyweight squats, push-ups කරන්න.</li>
+    </ul>`;
+
+  } else {
+    statusText = '🚨 අධි තරබාරු තත්ත්වය (Obese)';
+    statusColor = '#e74c3c';
+    pinPercent = Math.min(96, 78 + ((bmi - 30) / 10) * 20);
+    const excess = (weight - maxIdealWeight).toFixed(1);
+    weightDiffText = 'අවධානය යොමු කරන්න: ඔබ නිරෝගී මට්ටමට වඩා කිලෝග්‍රෑම් ' + excess + ' ක් බරින් වැඩිය. නිසි පාලනයක් කඩිනමින් අවශ්‍යයි.';
+
+    dietPlan = `<ul>
+      <li><strong>දැඩි ආහාර විනය:</strong> කැලරි අධික ආහාර, සීනි, කෘත්‍රිම ආහාර මුළුමනින්ම නවත්වන්න.</li>
+      <li>ප්‍රෝටීන් සහ තන්තු වැඩි, අඩු කාබෝහයිඩ්‍රේට් සහිත සමබල ක්‍රමවේදයකට මාරු වන්න.</li>
+      <li>පෝෂණවේදියෙකු (Dietitian) හමුවී පුද්ගලීකරණය කළ meal plan එකක් ලබාගැනීම වඩාත් සුදුසුය.</li>
+      <li>දිනකට ලීටර් 3.5 කට නොඅඩු ජලය පානය කරන්න.</li>
+    </ul>`;
+
+    workoutPlan = `<ul>
+      <li><strong>සන්ධි ආරක්ෂා වන Cardio (Low-Impact):</strong> සන්ධිවලට හානි නොවන පරිදි වේගයෙන් ඇවිදීම (Brisk Walk), stationary bicycle සහ පිහිනීම.</li>
+      <li>මුලින්ම දිනකට විනාඩි 30 කින් අරඹා ක්‍රමයෙන් විනාඩි 60 දක්වා වැඩි කරන්න.</li>
+      <li>හෘද රෝග හෝ වෙනත් අපහසුතා ඇත්නම් වෛද්‍ය පරීක්ෂාවකින් පසු ව්‍යායාම අරඹන්න.</li>
+    </ul>`;
+  }
+
+  // Populate HTML elements
+  document.getElementById('valBMI').textContent = bmi.toFixed(1);
+  const badge = document.getElementById('badgeBMIStatus');
+  badge.textContent = statusText;
+  badge.style.background = statusColor;
+  badge.style.color = (statusColor === '#2ecc71') ? '#031019' : '#fff';
+
+  document.getElementById('bmiPin').style.left = pinPercent + '%';
+
+  const ftVal = (heightCm / 30.48).toFixed(1);
+  document.getElementById('repHeight').textContent = heightCm.toFixed(1) + ' cm (අඩි ' + ftVal + ' පමණ)';
+  document.getElementById('repWeight').textContent = weight + ' kg';
+  document.getElementById('repIdealRange').textContent = minIdealWeight + ' kg - ' + maxIdealWeight + ' kg';
+  
+  const diffEl = document.getElementById('repWeightDifference');
+  diffEl.textContent = weightDiffText;
+  diffEl.style.color = statusColor;
+
+  document.getElementById('repBMR').textContent = Math.round(bmr);
+  document.getElementById('repTDEE').textContent = tdee;
+  document.getElementById('repWater').textContent = water;
+
+  document.getElementById('planDietContent').innerHTML = dietPlan;
+  document.getElementById('planWorkoutContent').innerHTML = workoutPlan;
+
+  document.getElementById('completeBMIReport').style.display = 'block';
+  document.getElementById('completeBMIReport').scrollIntoView({behavior:'smooth'});
+}
+
+// Sports Filter functionality
+function filterSports(category){
+  const btns = document.querySelectorAll('.sports-filter .filter-btn');
+  btns.forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+
+  const items = document.querySelectorAll('.sport-item');
+  items.forEach(item => {
+    if(category === 'all' || item.getAttribute('data-cat') === category){
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
+// Database of Sports Rules & Details
+const sportsDatabase = {
+  cricket: {
+    title: "🏏 ක්‍රිකට් (Cricket) - නීති රීති සහ ක්‍රීඩා කරන ආකාරය",
+    content: `
+      <h3>ක්‍රීඩාවේ හැඳින්වීම සහ අරමුණ</h3>
+      <p>ක්‍රිකට් යනු පිලකට ක්‍රීඩකයින් 11 බැගින් සහභාගී වන පිත්ත සහ පන්දුව භාවිතයෙන් ක්‍රීඩා කරන කණ්ඩායම් ක්‍රීඩාවකි. එක් පිලක් පන්දුවට පහරදෙන අතර අනෙක් පිල පන්දු යවමින් පන්දු රකියි. ඉනිම අවසානයේ වැඩිම ලකුණු ලබාගන්නා පිල ජයග්‍රහණය කරයි.</p>
+      
+      <h3 style="margin-top:15px;color:var(--primary)">පිටිය සහ උපකරණ මිනුම්</h3>
+      <ul>
+        <li><strong>පිච් එක (Pitch):</strong> විකට්ටු දෙක අතර දුර යාර 22 (මීටර් 20.12) කි.</li>
+        <li><strong>විකට්ටුව:</strong> උස අඟල් 28 ක් වන ස්ටම්ප්ස් 3 ක් සහ බෙල්ස් (Bails) 2 ක්.</li>
+        <li><strong>පන්දුව:</strong> සම්වලින් සාදා ඇති අතර බර ග්‍රෑම් 155.9 සිට 163 දක්වා වේ.</li>
+      </ul>
+
+      <h3 style="margin-top:15px;color:var(--primary)">ප්‍රධාන නීති රීති</h3>
+      <ul>
+        <li><strong>දැවී යාමේ ක්‍රම 10:</strong> Bowled, Caught, LBW (කඩුල්ල මුවා කිරීම), Run Out, Stumped, Hit Wicket, Obstructing field, Handled ball, Timed out, Hit ball twice.</li>
+        <li><strong>ඕවරයක්:</strong> නීත්‍යානුකූල පන්දු 6 කින් සමන්විත වේ.</li>
+        <li><strong>No ball & Wide ball:</strong> පන්දු යවන්නා crease එක ඉක්මවා යාම හෝ පිතිකරුවාට ළඟා විය නොහැකි තරම් ඈතින් යැවීම සඳහා අමතර ලකුණු සහ Free hit හිමිවේ.</li>
+        <li><strong>තරග ආකෘති:</strong> ටෙස්ට් (දින 5), එක්දින (ඕවර 50), T20 (ඕවර 20).</li>
+      </ul>`
+  },
+  football: {
+    title: "⚽ පාපන්දු (Football) - නීති රීති සහ ක්‍රීඩා කරන ආකාරය",
+    content: `
+      <h3>ක්‍රීඩාවේ හැඳින්වීම සහ අරමුණ</h3>
+      <p>පාපන්දු යනු පිලකට ක්‍රීඩකයින් 11 බැගින් වන ලොව විශාලතම ක්‍රීඩාවයි. මිනිත්තු 45 බැගින් වූ අර්ධ දෙකක් (මිනිත්තු 90) තුළ පාද හෝ හිස භාවිතයෙන් ප්‍රතිවාදී ගෝල රාමුව තුළට පන්දුව යොමු කිරීම මෙහි අරමුණයි.</p>
+      
+      <h3 style="margin-top:15px;color:var(--primary)">පිටියේ මිනුම්</h3>
+      <ul>
+        <li><strong>දිග:</strong> මීටර් 100 - 110</li>
+        <li><strong>පළල:</strong> මීටර් 64 - 75</li>
+        <li><strong>ගෝල් රාමුව:</strong> පළල අඩි 24 (මීටර් 7.32) සහ උස අඩි 8 (මීටර් 2.44)</li>
+      </ul>
+
+      <h3 style="margin-top:15px;color:var(--primary)">ප්‍රධාන නීති රීති</h3>
+      <ul>
+        <li><strong>Handball (දෑත් භාවිතය):</strong> ගෝල් රකින්නා හැර අනෙක් කිසිදු ක්‍රීඩකයෙකුට පන්දුව අතින් ඇල්ලීම තහනම්ය.</li>
+        <li><strong>Offside (ඕෆ්සයිඩ්):</strong> පන්දුව පාස් කරන මොහොතේ ප්‍රහාරක ක්‍රීඩකයා ප්‍රතිවාදී අවසන් ආරක්ෂකයාට වඩා ඉදිරියෙන් සිටීම.</li>
+        <li><strong>කාඩ්පත්:</strong> අනතුරුදායක හෝ වැරදි ක්‍රියා සඳහා කහ කාඩ්පතක් (අවවාදය) සහ රතු කාඩ්පතක් (පිටියෙන් නෙරපීම) විනිසුරු ලබා දෙයි.</li>
+      </ul>`
+  },
+  rugby: {
+    title: "🏉 රග්බි (Rugby) - සම්පූර්ණ නීති හා ක්‍රීඩා විලාසය",
+    content: `
+      <h3>ක්‍රීඩාවේ අරමුණ සහ ලකුණු ක්‍රමය</h3>
+      <p>ප්‍රතිවාදීන් මැඩපවත්වා ඕවලාකාර පන්දුව In-goal ප්‍රදේශයට රැගෙන ගොස් බිම තැබීම (Try) මූලික අරමුණ වේ.</p>
+      <ul>
+        <li><strong>Try:</strong> ලකුණු 5 ක් හිමිවේ.</li>
+        <li><strong>Conversion kick:</strong> Try එකකින් පසු ලකුණු 2 ක් ලබාගත හැක.</li>
+        <li><strong>Penalty kick / Drop goal:</strong> ලකුණු 3 ක් හිමිවේ.</li>
+      </ul>
+      <h3 style="margin-top:15px;color:var(--primary)">ප්‍රධාන නීති</h3>
+      <ul>
+        <li><strong>Forward Pass තහනම්:</strong> අතින් පන්දුව පාස් කළ හැක්කේ පිටුපසට හෝ සමාන්තරව පමණි. ඉදිරියට පන්දුව යැවිය හැක්කේ පයින් ගැසීමෙන් (Kicking) පමණි.</li>
+        <li><strong>Knock-on:</strong> පන්දුව අතින් ඉදිරියට ගිලිහී බිම වැටුණහොත් Scrum එකක් ලබා දේ.</li>
+        <li><strong>Tackling:</strong> උරහිසෙන් පහළ ශරීර ප්‍රදේශයට පමණක් tackle කළ යුතුය (High tackle දැඩි දඬුවම් ලැබිය හැකි වරදකි).</li>
+      </ul>`
+  },
+  basketball: {
+    title: "🏀 බාස්කට්බෝල් (Basketball) - නීති සහ ක්‍රමවේද",
+    content: `
+      <h3>ක්‍රීඩාවේ අරමුණ සහ ලකුණු</h3>
+      <p>අඩි 10 ක් උසින් පිහිටි වළල්ලට පන්දුව දැමීම මගින් ලකුණු ලබා ගනී. මිනිත්තු 10 හෝ 12 ක කාර්තු (Quarters) 4 කින් තරගය සමන්විත වේ.</p>
+      <ul>
+        <li><strong>3-Point line පිටතින්:</strong> ලකුණු 3 ක්</li>
+        <li><strong>3-Point line ඇතුළතින්:</strong> ලකුණු 2 ක්</li>
+        <li><strong>Free Throw:</strong> ලකුණු 1 ක්</li>
+      </ul>
+      <h3 style="margin-top:15px;color:var(--primary)">ප්‍රධාන නීති</h3>
+      <ul>
+        <li><strong>Dribbling:</strong> පන්දුව රැගෙන දිවීමේදී අනිවාර්යයෙන්ම බිම bounce කරමින් (Dribble) යා යුතුය. Dribble නොකර පියවර 2 කට වඩා තැබීම (Traveling) වරදකි.</li>
+        <li><strong>Double Dribble:</strong> පන්දුව Dribble කර දෙඅතින් අල්ලා නැවත Dribble කිරීම තහනම්ය.</li>
+        <li><strong>Shot Clock:</strong> පන්දුව ලැබී තත්පර 24 ක් ඇතුළත වළල්ල වෙත shoot කළ යුතුය.</li>
+      </ul>`
+  },
+  volleyball: {
+    title: "🏐 වොලිබෝල් (Volleyball) - නීති සහ මිනුම්",
+    content: `
+      <h3>ක්‍රීඩාවේ ස්වභාවය (පිලකට 6 බැගින්)</h3>
+      <p>මීටර් 18x9 පිටියක මැදින් ඇති දැලට ඉහළින් පන්දුවට පහරදී ප්‍රතිවාදී කොටසේ පතිත කිරීම අරමුණයි.</p>
+      <ul>
+        <li><strong>ස්පර්ශ 3 ක නීතිය:</strong> පිලකට පන්දුව දැලෙන් එතෙර කිරීමට පෙර උපරිම ස්පර්ශ කළ හැක්කේ 3 වතාවකි. එක් ක්‍රීඩකයෙකුට පිට පිට දෙවරක් ස්පර්ශ කළ නොහැක.</li>
+        <li><strong>Rotation:</strong> සර්විස් එක දිනාගත් විට ක්‍රීඩකයින් ඔරලෝසු කටු කැරකෙන දිශාවට (Clockwise) ස්ථාන මාරු විය යුතුය.</li>
+        <li><strong>දැල් ස්පර්ශය:</strong> ක්‍රීඩාව අතරතුර දැලේ ශරීරය වැදීම තහනම්ය.</li>
+        <li><strong>ජයග්‍රහණය:</strong> ලකුණු 25 බැගින් වූ සෙට් 5 න් 3 ක් දිනන පිල ජය ගනී.</li>
+      </ul>`
+  },
+  badminton: {
+    title: "🏸 බැඩ්මින්ටන් (Badminton) - නීති රීති",
+    content: `
+      <h3>ක්‍රීඩා විලාසය</h3>
+      <p>තනි හෝ යුගල වශයෙන් Shuttlecock එකට රැකට් එකෙන් පහරදී දැලට ඉහළින් ප්‍රතිවාදී කොටසේ බිම ගැස්සවීම.</p>
+      <ul>
+        <li><strong>ලකුණු ක්‍රමය:</strong> ලකුණු 21 ක සෙට් 3 න් 2 ක් ජය ගන්නා ක්‍රීඩකයා ජය ගනී.</li>
+        <li><strong>සර්විස් නීතිය:</strong> සර්විස් කරන මොහොතේ රැකට් එක ඉණට පහළින් (මීටර් 1.15) පිහිටිය යුතුය.</li>
+        <li><strong>Faults:</strong> ෂටලය දැලේ වැටීම, රේඛාවෙන් පිටත වැටීම හෝ ක්‍රීඩකයා දැලේ ස්පර්ශ වීම.</li>
+      </ul>`
+  },
+  tennis: {
+    title: "🎾 ටෙනිස් (Lawn Tennis) - සම්පූර්ණ විස්තරය",
+    content: `
+      <h3>තරග ආකෘතිය සහ ලකුණු ක්‍රමය</h3>
+      <p>පන්දුව එක් bounce එකක් වූ පසු රැකට් එකෙන් ප්‍රතිවාදී කොටසට පහර දිය යුතුය.</p>
+      <ul>
+        <li><strong>Game ලකුණු:</strong> 0 (Love), 15, 30, 40 සහ Game. 40-40 වූ විට Deuce වන අතර ජයග්‍රහණයට ලකුණු 2 ක පරතරයක් අවශ්‍යයි.</li>
+        <li><strong>Sets:</strong> Games 6 ක් දිනාගත් විට Set එකක් හිමිවේ.</li>
+        <li><strong>Service:</strong> සර්විස් එක විකර්ණව ප්‍රතිවාදී service box එකට වැටිය යුතුය. අසාර්ථක වුවහොත් දෙවන සර්විස් අවස්ථාවක් (Second serve) හිමිවේ.</li>
+      </ul>`
+  },
+  athletics: {
+    title: "🏃 මලල ක්‍රීඩා (Athletics) - සම්පූර්ණ නීති",
+    content: `
+      <h3>ප්‍රධාන අංශ සහ තරග නීති</h3>
+      <ul>
+        <li><strong>ධාවන (Track Events):</strong> 100m, 200m, 400m, 800m, 1500m, 5000m, කඩුලු මතින් දිවීම සහ සහය දිවීම (Relay).</li>
+        <li><strong>පැනීම් (Jumps):</strong> දුර පැනීම, උස පැනීම, තුන්පිම්ම, රිටි පැනීම.</li>
+        <li><strong>විසිකිරීම් (Throws):</strong> හෙල්ල, යගුලිය, කවපෙත්ත, මිටිය විසිකිරීම.</li>
+        <li><strong>False Start:</strong> ආරම්භක වෙඩි හඬට පෙර ධාවකයා ආරම්භක කුට්ටියෙන් (Blocks) ඉවත් වුවහොත් ක්ෂණිකව තරගයෙන් ඉවත් කෙරේ.</li>
+      </ul>`
+  },
+  swimming: {
+    title: "🏊 පිහිනුම් ක්‍රීඩාව (Swimming) - නීති සහ ආරෝපණ",
+    content: `
+      <h3>ප්‍රධාන ආරෝපණ 4 (Styles)</h3>
+      <ul>
+        <li><strong>Freestyle (Front Crawl):</strong> වේගවත්ම පිහිනුම් ක්‍රමය.</li>
+        <li><strong>Backstroke:</strong> උඩුබැලි අතට පිහිනීම. ආරම්භය ජලය තුළ සිට සිදු කෙරේ.</li>
+        <li><strong>Breaststroke:</strong> මැඩි පිහිනුම. දෑත් සහ පාද සමගාමීව චලනය විය යුතුය.</li>
+        <li><strong>Butterfly:</strong> සමනල ආරෝපණය. දෙපා සහ දෑත් එකවර චලනය කරන වැඩිම ශක්තියක් වැයවන ක්‍රමයයි.</li>
+      </ul>
+      <p>මීටර් 50 ඔලිම්පික් පිහිනුම් තටාකයක මංතීරු (Lanes) 8 ක් තුළ තරග පැවැත්වේ.</p>`
+  },
+  boxing: {
+    title: "🥊 බොක්සිං (Boxing) - නීති සහ දඬුවම්",
+    content: `
+      <h3>තරග නීති සහ ජයග්‍රහණය තීරණය වීම</h3>
+      <ul>
+        <li><strong>Knockout (KO):</strong> පහරකින් පසු තත්පර 10 ක් ඇතුළත නැගිටීමට නොහැකි වීම.</li>
+        <li><strong>Technical Knockout (TKO):</strong> ක්‍රීඩකයාට තවදුරටත් තරග කළ නොහැකි බව විනිසුරු හෝ වෛද්‍යවරයා තීරණය කිරීම.</li>
+        <li><strong>Points (ලකුණු):</strong> විනිසුරුවරුන් 3-5 දෙනෙකු පහරවල නිරවද්‍යතාව මත ලකුණු ලබා දීම.</li>
+        <li><strong>තහනම් ක්‍රියා:</strong> හිස පිටුපසට පහරදීම (Rabbit punch), ඉණෙන් පහළට පහරදීම, වැලමිටෙන් පහරදීම හෝ සපාකෑම.</li>
+      </ul>`
+  },
+  wrestling: {
+    title: "🥋 මල්ලවපොර සහ ජූඩෝ - නීති රීති",
+    content: `
+      <h3>ක්‍රීඩා විලාසය</h3>
+      <p>ප්‍රතිවාදියාගේ ශරීරය මත පාලනය ලබා ගනිමින් පිට බිම ගැස්සවීම (Pin fall) හෝ ලකුණු මගින් ජය ගැනීම.</p>
+      <ul>
+        <li><strong>Greco-Roman Wrestling:</strong> ඉණෙන් ඉහළ ශරීර ප්‍රදේශය පමණක් අල්ලා ගැනීම නීත්‍යානුකූල වේ (පාද අල්ලා ගැනීම තහනම්).</li>
+        <li><strong>Freestyle Wrestling:</strong> පාද අල්ලා ගැනීම සහ බිම දැමීම සම්පූර්ණයෙන්ම නීත්‍යානුකූලයි.</li>
+        <li><strong>ජූඩෝ:</strong> Ippon (පූර්ණ විසි කිරීමක්), Waza-ari (අර්ධ ලකුණ) සහ Submissions (අත් අගුල්).</li>
+      </ul>`
+  },
+  tabletennis: {
+    title: "🏓 මේස පන්දු (Table Tennis) - නීති",
+    content: `
+      <h3>නීති රීති</h3>
+      <ul>
+        <li><strong>සර්විස්:</strong> පන්දුව අල්ල මත තබා අවම වශයෙන් සෙ.මී. 16 ක් උඩ දමා පිත්තෙන් පහරදී පළමුව තම කොටසේ සහ පසුව ප්‍රතිවාදී කොටසේ bounce විය යුතුය.</li>
+        <li><strong>ලකුණු:</strong> ලකුණු 11 ක් පළමුව ලබාගන්නා ක්‍රීඩකයා සෙට් එක ජය ගනී (ලකුණු 2 ක පරතරයක් තිබිය යුතුය).</li>
+      </ul>`
+  },
+  hockey: {
+    title: "🏑 හොකී (Field Hockey) - නීති",
+    content: `
+      <h3>නීති රීති</h3>
+      <ul>
+        <li>පිත්තේ පැතලි මතුපිටින් පමණක් පන්දුවට පහර දිය හැක. රවුම් පැත්තෙන් ගැසීම තහනම්.</li>
+        <li>ගෝල රකින්නා හැර අනෙක් කිසිදු ක්‍රීඩකයෙකුට පාදයෙන් පන්දුව ස්පර්ශ කළ නොහැක.</li>
+        <li>ගෝලයක් වාර්තා කළ හැක්කේ Shooting Circle (D-area) එක ඇතුළත සිට එල්ල කරන පහරකින් පමණි.</li>
+      </ul>`
+  },
+  baseball: {
+    title: "⚾ බේස්බෝල් (Baseball) - නීති",
+    content: `
+      <h3>ක්‍රීඩා නීති</h3>
+      <ul>
+        <li>ඉනිම 9 කින් සමන්විත වන අතර එක් පිලකට ඉනිමකදී දැවී යාම් 3 ක් (Outs 3) හිමිවේ.</li>
+        <li>පන්දු යවන්නා Strike Zone එකට එවන පන්දුවට පිතිකරුවා පහර දිය යුතුය. Strike 3 කින් පිතිකරුවා දැවී යයි.</li>
+        <li>පිටියෙන් එපිටට පහර දුන් විට Home Run එකක් වාර්තා වේ.</li>
+      </ul>`
+  },
+  cycling: {
+    title: "🚴 පාපැදි ධාවනය - නීති සහ ආරක්ෂාව",
+    content: `
+      <h3>තරග නීති</h3>
+      <ul>
+        <li>හෙල්මට් පැළඳීම අනිවාර්ය වන අතර ප්‍රතිවාදී ධාවකයින් තල්ලු කිරීම හෝ බාධා කිරීම සපුරා තහනම්ය.</li>
+        <li>Peloton (ප්‍රධාන ධාවක කණ්ඩායම) තුළ සුළං ප්‍රතිරෝධය (Drafting) අවම කරගනිමින් කණ්ඩායම් උපක්‍රම භාවිත කෙරේ.</li>
+      </ul>`
+  },
+  archery: {
+    title: "🎯 දුනු විදීම (Archery) - නීති",
+    content: `
+      <h3>නීති රීති</h3>
+      <ul>
+        <li>මීටර් 70 ක් ඈතින් පිහිටි සෙ.මී. 122 ක ඉලක්ක පුවරුවකට විදීම.</li>
+        <li>කහ පැහැති මධ්‍ය ලක්ෂ්‍යයට (Bullseye) ලකුණු 10 ක් හිමිවන අතර පිටතට යත්ම ලකුණු 9 සිට 1 දක්වා අඩු වේ.</li>
+      </ul>`
+  },
+  gymnastics: {
+    title: "🤸 ජිම්නාස්ටික් (Gymnastics) - නීති",
+    content: `
+      <h3>ඇගයීම් නීති</h3>
+      <ul>
+        <li><strong>D-Score (Difficulty):</strong> චලනයන්හි දුෂ්කරතා මට්ටම.</li>
+        <li><strong>E-Score (Execution):</strong> චලනයන්හි නිවැරදිභාවය, ඉරියව් සහ ගොඩබැසීම (Landing). වැරදි සඳහා ලකුණු අඩු කෙරේ.</li>
+      </ul>`
+  },
+  chess: {
+    title: "♟️ චෙස් (Chess) - සම්පූර්ණ නීති",
+    content: `
+      <h3>මූලික නීති</h3>
+      <ul>
+        <li><strong>Checkmate:</strong> ප්‍රතිවාදී රජුට කිසිදු කොටුවකට පැනයාමට නොහැකි සේ කොටු කිරීමෙන් තරගය ජය ගනී.</li>
+        <li><strong>Stalemate (ජය පරාජයෙන් තොර වීම):</strong> රජුට Check නොමැති අවස්ථාවක වෙනත් කිසිදු ඉත්තෙකු ඇදීමට නීත්‍යානුකූල පියවරක් නැති වීම.</li>
+        <li><strong>Castling:</strong> රජු සහ රූක් (Rook) එකවර මාරු කිරීමේ විශේෂ ආරක්ෂක පියවර.</li>
+        <li><strong>Touch-move:</strong> අතින් ඇල්ලූ ඉත්තා අනිවාර්යයෙන්ම ඇදිය යුතුය.</li>
+      </ul>`
+  }
+};
+
+function openSportModal(sportKey){
+  const sport = sportsDatabase[sportKey];
+  if(!sport) return;
+  
+  const modal = document.getElementById('sportModal');
+  const body = document.getElementById('sportModalBody');
+  body.innerHTML = `<h2>${sport.title}</h2><div style="margin-top:15px;line-height:1.8">${sport.content}</div>`;
+  modal.style.display = 'block';
+}
+
+function closeSportModal(){
+  document.getElementById('sportModal').style.display = 'none';
+}
+
+window.onclick = function(event){
+  const modal = document.getElementById('sportModal');
+  if(event.target === modal){
+    modal.style.display = 'none';
+  }
+}
+
+/* ============================================================
+   STOPWATCH (with Lap + Sound)
+   ============================================================ */
+let swRunning = false;
+let swStartTime = 0;
+let swElapsed = 0;
+let swInterval = null;
+let swLapCount = 0;
+let swLastLapTime = 0;
+
+function formatStopwatchTime(ms){
+  const totalCentis = Math.floor(ms / 10);
+  const centis = totalCentis % 100;
+  const totalSeconds = Math.floor(totalCentis / 100);
+  const seconds = totalSeconds % 60;
+  const totalMinutes = Math.floor(totalSeconds / 60);
+  const minutes = totalMinutes % 60;
+  const hours = Math.floor(totalMinutes / 60);
+  const pad = (n) => String(n).padStart(2,'0');
+  return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds) + '.' + pad(centis);
+}
+
+function updateStopwatchDisplay(){
+  const now = Date.now();
+  const currentElapsed = swElapsed + (swRunning ? (now - swStartTime) : 0);
+  const el = document.getElementById('stopwatchDisplay');
+  if(el) el.textContent = formatStopwatchTime(currentElapsed);
+}
+
+// Simple beep using Web Audio API (no external sound file needed)
+function playBeep(frequency, duration){
+  frequency = frequency || 880;
+  duration = duration || 120;
+  try{
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    const ctx = new AudioCtx();
+    const oscillator = ctx.createOscillator();
+    const gainNode = ctx.createGain();
+    oscillator.type = 'sine';
+    oscillator.frequency.value = frequency;
+    gainNode.gain.setValueAtTime(0.15, ctx.currentTime);
+    oscillator.connect(gainNode);
+    gainNode.connect(ctx.destination);
+    oscillator.start();
+    gainNode.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration/1000);
+    oscillator.stop(ctx.currentTime + duration/1000);
+    oscillator.onended = function(){ ctx.close(); };
+  }catch(e){ /* Web Audio not supported - silently ignore */ }
+}
+
+function toggleStopwatch(){
+  const btn = document.getElementById('swStartBtn');
+  if(!swRunning){
+    swRunning = true;
+    swStartTime = Date.now();
+    swInterval = setInterval(updateStopwatchDisplay, 10);
+    btn.textContent = '⏸️ නවත්වන්න (Stop)';
+    playBeep(880, 100);
+  } else {
+    swRunning = false;
+    swElapsed += Date.now() - swStartTime;
+    clearInterval(swInterval);
+    btn.textContent = '▶️ ආරම්භ කරන්න (Start)';
+    playBeep(440, 150);
+  }
+}
+
+function lapStopwatch(){
+  if(!swRunning && swElapsed === 0) return;
+  const now = Date.now();
+  const currentElapsed = swElapsed + (swRunning ? (now - swStartTime) : 0);
+  swLapCount++;
+  const splitTime = currentElapsed - swLastLapTime;
+  swLastLapTime = currentElapsed;
+  const container = document.getElementById('lapListContainer');
+  const lapDiv = document.createElement('div');
+  lapDiv.className = 'lap-item';
+  lapDiv.innerHTML = '<span class="lap-num">Lap ' + swLapCount + '</span><span>+' + formatStopwatchTime(splitTime) + '</span><span style="color:#78e6d0">' + formatStopwatchTime(currentElapsed) + '</span>';
+  container.prepend(lapDiv);
+  playBeep(1200, 90);
+}
+
+function resetStopwatch(){
+  swRunning = false;
+  clearInterval(swInterval);
+  swElapsed = 0;
+  swLapCount = 0;
+  swLastLapTime = 0;
+  const display = document.getElementById('stopwatchDisplay');
+  if(display) display.textContent = '00:00:00.00';
+  const btn = document.getElementById('swStartBtn');
+  if(btn) btn.textContent = '▶️ ආරම්භ කරන්න (Start)';
+  const container = document.getElementById('lapListContainer');
+  if(container) container.innerHTML = '';
+}
+
+/* ============================================================
+   GPS DISTANCE TRACKER (km) with Sinhala voice announcements
+   ============================================================ */
+let distWatchId = null;
+let distTotalKm = 0;
+let distLastPosition = null;
+let distLastAnnouncedKm = 0;
+
+function toRad(deg){ return deg * Math.PI / 180; }
+
+function haversineDistanceKm(lat1, lon1, lat2, lon2){
+  const R = 6371; // Earth radius in km
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+  const a = Math.sin(dLat/2)*Math.sin(dLat/2) +
+            Math.cos(toRad(lat1))*Math.cos(toRad(lat2)) *
+            Math.sin(dLon/2)*Math.sin(dLon/2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  return R * c;
+}
+
+function speakSinhala(text){
+  try{
+    if(!('speechSynthesis' in window)) return;
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'si-LK';
+    utterance.rate = 0.95;
+    const voices = window.speechSynthesis.getVoices();
+    const sinhalaVoice = voices.find(function(v){ return v.lang && v.lang.toLowerCase().indexOf('si') === 0; });
+    if(sinhalaVoice) utterance.voice = sinhalaVoice;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+  }catch(e){ /* speechSynthesis not supported - silently ignore */ }
+}
+
+function startDistanceTracking(){
+  if(!('geolocation' in navigator)){
+    document.getElementById('distanceStatus').textContent = 'ඔබගේ බ්‍රව්සරය GPS ස්ථානගත කිරීම සඳහා සහාය නොදක්වයි.';
+    return;
+  }
+  distLastPosition = null;
+  document.getElementById('distanceStatus').textContent = 'GPS සංඥාව සොයමින්...';
+  document.getElementById('distStartBtn').disabled = true;
+  document.getElementById('distStopBtn').disabled = false;
+  playBeep(880, 100);
+  speakSinhala('දුර මැනීම ආරම්භ කරන ලදී');
+
+  distWatchId = navigator.geolocation.watchPosition(function(position){
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    const accuracy = position.coords.accuracy;
+    const speed = position.coords.speed;
+
+    let statusText = 'GPS නිරවද්‍යතාව: ' + Math.round(accuracy) + 'මී.';
+    if(speed){ statusText += ' | වේගය: ' + (speed*3.6).toFixed(1) + ' km/h'; }
+    document.getElementById('distanceStatus').textContent = statusText;
+
+    if(distLastPosition){
+      if(accuracy && accuracy > 40){
+        return; // Skip noisy / low-accuracy GPS readings
+      }
+      const segmentKm = haversineDistanceKm(distLastPosition.latitude, distLastPosition.longitude, latitude, longitude);
+      if(segmentKm > 0.003){ // Ignore GPS jitter smaller than 3 meters
+        distTotalKm += segmentKm;
+        distLastPosition = { latitude: latitude, longitude: longitude };
+        document.getElementById('distanceValue').textContent = distTotalKm.toFixed(2) + ' කි.මී.';
+
+        const currentWholeKm = Math.floor(distTotalKm);
+        if(currentWholeKm > distLastAnnouncedKm){
+          distLastAnnouncedKm = currentWholeKm;
+          speakSinhala('ඔබ කිලෝමීටර් ' + currentWholeKm + ' ක් සම්පූර්ණ කර ඇත');
+          playBeep(660, 200);
+        }
+      }
+    } else {
+      distLastPosition = { latitude: latitude, longitude: longitude };
+    }
+  }, function(){
+    document.getElementById('distanceStatus').textContent = 'GPS දෝෂයක්: ස්ථානගත කිරීමේ අවසරය පරීක්ෂා කරන්න.';
+  }, { enableHighAccuracy: true, maximumAge: 1000, timeout: 15000 });
+}
+
+function stopDistanceTracking(){
+  if(distWatchId !== null){
+    navigator.geolocation.clearWatch(distWatchId);
+    distWatchId = null;
+  }
+  document.getElementById('distStartBtn').disabled = false;
+  document.getElementById('distStopBtn').disabled = true;
+  document.getElementById('distanceStatus').textContent = 'දුර මැනීම නවත්වන ලදී.';
+  playBeep(440, 150);
+  speakSinhala('දුර මැනීම නවත්වන ලදී');
+}
+
+function resetDistanceTracking(){
+  stopDistanceTracking();
+  distTotalKm = 0;
+  distLastPosition = null;
+  distLastAnnouncedKm = 0;
+  document.getElementById('distanceValue').textContent = '0.00 කි.මී.';
+  document.getElementById('distanceStatus').textContent = 'GPS එක සකස් කර නැත';
+}
+</script>
+
+<script>
+/* IMAGE SAFETY FALLBACK — keeps every existing image/content intact.
+   If an external image cannot load, use the already-embedded website hero photo
+   instead of showing the ugly broken-image icon. */
+(function(){
+  function installImageFallback(){
+    const embeddedHero = document.querySelector('header img');
+    const fallbackSrc = embeddedHero ? embeddedHero.getAttribute('src') : '';
+    if(!fallbackSrc) return;
+    document.querySelectorAll('img').forEach(function(img){
+      if(img.dataset.fallbackReady === '1') return;
+      img.dataset.fallbackReady = '1';
+      img.addEventListener('error', function(){
+        if(this.dataset.fallbackUsed === '1') return;
+        this.dataset.fallbackUsed = '1';
+        this.src = fallbackSrc;
+        this.style.background = '#0a1724';
+        this.style.objectFit = this.style.objectFit || 'cover';
+      });
+    });
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', installImageFallback);
+  else installImageFallback();
+})();
+</script>
+
+<style>
+/* STATIC PDF LIBRARY */
+.pdf-library{background:linear-gradient(145deg,#0a1926,#102a3c);border:2px solid #1b4b66;border-radius:20px;padding:24px;margin:24px auto;max-width:1200px}
+.pdf-library h2{margin-top:0}
+.pdf-toolbar{margin:15px 0}
+.pdf-toolbar input{width:100%;box-sizing:border-box}
+.pdf-help{color:var(--text-sub);font-size:14px;margin:8px 0 18px}
+.pdf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:16px}
+.pdf-item{background:#081522;border:1px solid #24455a;border-radius:15px;padding:16px;display:flex;flex-direction:column;gap:10px;overflow:hidden}
+.pdf-cover{width:100%;height:170px;object-fit:cover;border-radius:10px;background:linear-gradient(135deg,#15364b,#0b1b29);border:1px solid #31556b}
+.pdf-item h3{font-size:17px;margin:0;overflow-wrap:anywhere}
+.pdf-item small{color:#b8c9d7;overflow-wrap:anywhere}
+.pdf-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+.pdf-actions a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+.pdf-empty{padding:25px;text-align:center;color:#b8c9d7;border:1px dashed #31556b;border-radius:12px;grid-column:1/-1}
+.pdf-no-results{display:none;color:var(--accent-gold);padding:12px 0}.pdf-delete{background:#8b2635!important;color:#fff!important;border:0;cursor:pointer}.pdf-delete:hover{filter:brightness(1.12)}
+.pdf-admin-note{background:#102a3c;border:1px solid #31556b;border-radius:12px;padding:14px;color:#d5e6f2;font-size:14px;margin-top:18px}
+@media(max-width:650px){.pdf-library{padding:16px}.pdf-cover{height:150px}}
+</style>
+
+<section class="pdf-library container" id="pdfLibrary">
+  <h2>📚 PDF ලේඛන පුස්තකාලය</h2>
+  <p>මෙහි ඇති PDF ලේඛන සියලුම website visitors ලාට පෙන්වනු ලැබේ. PDF නම සිංහලෙන් හෝ ඉංග්‍රීසියෙන් සොයන්න.</p>
+  <div class="pdf-toolbar">
+    <input id="pdfSearch" type="search" placeholder="🔎 PDF නම සිංහලෙන් ටයිප් කර සොයන්න..." aria-label="PDF නම සොයන්න">
+  </div>
+  <p class="pdf-help">PDF එකක් එකතු කිරීමට පහළ JavaScript එකේ <b>PDF_DOCUMENTS</b> ලැයිස්තුවට PDF link එක සහ Cover Photo link එක ඇතුළත් කරන්න.</p>
+  <div id="pdfList" class="pdf-grid"></div>
+  <div id="pdfNoResults" class="pdf-no-results">සෙවූ නමට ගැළපෙන PDF එකක් හමු නොවීය.</div>
+  <div class="pdf-admin-note">ℹ️ මෙය Static PDF Website එකකි. PDF සහ Cover Photo files hosting එකට upload කර, පහළ ලැයිස්තුවට ඒවාගේ links එක් කළ විට link එකට එන සියලුම අයට ඒවා පෙන්වනු ඇත.</div>
+</section>
+
+<script>
+(function(){
+  /*
+    ADMIN NOTE:
+    Add your uploaded files here.
+    Example:
+    {
+      title: 'ව්‍යායාම මාර්ගෝපදේශය',
+      pdf: 'pdfs/vyayama-margopadesha.pdf',
+      cover: 'images/vyayama-margopadesha.jpg'
+    }
+  */
+  const PDF_DOCUMENTS = [
+    // Add PDF records here. Keep this list empty until your real files are uploaded.
+  ];
+
+  const search = document.getElementById('pdfSearch');
+  const list = document.getElementById('pdfList');
+  const noResults = document.getElementById('pdfNoResults');
+
+  // Delete protection password (client-side only; not suitable for secure online admin control).
+  const DELETE_PASSWORD = 'Sajith2000';
+
+  function escapeHTML(value){
+    return String(value).replace(/[&<>"']/g, c => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+  }
+
+  function render(){
+    const query = search.value.trim().toLocaleLowerCase('si-LK');
+    const filtered = PDF_DOCUMENTS.filter(item =>
+      (item.title || '').toLocaleLowerCase('si-LK').includes(query)
+    );
+
+    list.innerHTML = '';
+    noResults.style.display = filtered.length || !PDF_DOCUMENTS.length ? 'none' : 'block';
+
+    if(!PDF_DOCUMENTS.length){
+      list.innerHTML = '<div class="pdf-empty">තවම PDF ලේඛන එකතු කර නැත. Website files සමඟ PDF එකතු කර PDF_DOCUMENTS ලැයිස්තුව update කරන්න.</div>';
+      return;
+    }
+
+    filtered.forEach(item => {
+      const card = document.createElement('article');
+      card.className = 'pdf-item';
+      const cover = item.cover ? escapeHTML(item.cover) : '';
+      card.innerHTML = `
+        ${cover
+          ? `<img class="pdf-cover" src="${cover}" alt="${escapeHTML(item.title)} cover" loading="lazy" onerror="this.style.display='none'">`
+          : '<div class="pdf-cover" aria-label="PDF cover not available" style="display:flex;align-items:center;justify-content:center;font-size:58px">📄</div>'}
+        <h3>${escapeHTML(item.title)}</h3>
+        <small>📄 PDF ලේඛනය</small>
+        <div class="pdf-actions">
+          <a class="btn" href="${escapeHTML(item.pdf)}" target="_blank" rel="noopener">📖 බලන්න</a>
+          <a class="btn btn-outline" href="${escapeHTML(item.pdf)}" download>⬇️ Download</a>
+          <button class="btn btn-danger pdf-delete" type="button" aria-label="PDF ඉවත් කරන්න">🗑️ Delete</button>
+        </div>`;
+      const deleteButton = card.querySelector('.pdf-delete');
+      deleteButton.addEventListener('click', () => {
+        const entered = window.prompt('PDF එක Delete කිරීමට Password එක ඇතුළත් කරන්න:');
+        if (entered === null) return;
+        if (entered !== DELETE_PASSWORD) {
+          window.alert('වැරදි Password එකක්. PDF එක Delete කළ නොහැක.');
+          return;
+        }
+        const index = PDF_DOCUMENTS.indexOf(item);
+        if (index !== -1) {
+          PDF_DOCUMENTS.splice(index, 1);
+          render();
+          window.alert('මෙම browser session එකෙන් PDF එක ඉවත් කළා.');
+        }
+      });
+      list.appendChild(card);
+    });
+  }
+
+  search.addEventListener('input', render);
+  render();
+})();
+</script>
+
+
+
+<!-- =========================================================
+     ADDED FEATURE: SECURE LOCAL PDF UPLOAD + PASSWORD VIEWER
+     Existing website content above is intentionally unchanged.
+     ========================================================= -->
+<style>
+#securePdfManager{max-width:1200px;margin:28px auto;padding:24px;background:linear-gradient(145deg,#0a1926,#102a3c);border:2px solid #19d3ae;border-radius:20px;box-shadow:0 12px 35px rgba(0,0,0,.45)}
+#securePdfManager .sp-title{color:#19d3ae;margin:0 0 8px;font-size:26px}
+#securePdfManager .sp-sub{color:#cbd8e6;margin-bottom:18px}
+.sp-panel{background:#081522;border:1px solid #24455a;border-radius:15px;padding:18px;margin-top:16px}
+.sp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;align-items:end}
+.sp-field label{display:block;color:#78e6d0;font-weight:700;font-size:14px;margin-bottom:6px}
+.sp-field input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid #2a5573;background:#06101a;color:#fff}
+.sp-file{padding:10px!important}
+.sp-btn{padding:11px 18px;border:0;border-radius:10px;background:#19d3ae;color:#031019;font-weight:800;cursor:pointer}
+.sp-btn:hover{filter:brightness(1.08)}
+.sp-btn.secondary{background:#ffc857}.sp-btn.danger{background:#8b2635;color:#fff}
+.sp-status{margin-top:12px;padding:10px 12px;border-radius:10px;background:#061019;color:#cbd8e6;display:none}
+.sp-status.ok{display:block;border-left:4px solid #19d3ae}.sp-status.err{display:block;border-left:4px solid #ff6b6b;color:#ffd6d6}
+.sp-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:18px}
+.sp-card{background:#081522;border:1px solid #24455a;border-radius:15px;padding:16px}
+.sp-card h3{color:#78e6d0;margin:0 0 6px;overflow-wrap:anywhere}.sp-meta{font-size:13px;color:#aebdca;margin-bottom:12px}.sp-actions{display:flex;gap:8px;flex-wrap:wrap}
+.sp-password-row{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:10px}.sp-password-row input{min-width:0}
+#spViewerModal{display:none;position:fixed;z-index:99999;inset:0;background:rgba(0,0,0,.92);padding:18px}
+#spViewerBox{height:calc(100vh - 36px);max-width:1100px;margin:auto;background:#0d1d2b;border:2px solid #19d3ae;border-radius:16px;display:flex;flex-direction:column;overflow:hidden}
+#spViewerTop{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;background:#081522}#spViewerTitle{font-weight:800;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#spPdfFrame{width:100%;height:100%;border:0;background:#fff}.sp-note{font-size:13px;color:#aebdca;margin-top:12px}
+@media(max-width:600px){#securePdfManager{padding:15px}.sp-password-row{grid-template-columns:1fr}.sp-btn{width:100%}}
+</style>
+
+<section id="securePdfManager" class="container">
+  <h2 class="sp-title">🔐 PDF Upload & Password Viewer</h2>
+  <p class="sp-sub">PDF එක upload කරලා save කරන්න. PDF එක බලන්න නම් card එක යට password එක ඇතුළත් කර <b>🔓 PDF බලන්න</b> ඔබන්න.</p>
+
+  <div class="sp-panel">
+    <div class="sp-grid">
+      <div class="sp-field">
+        <label for="spPdfTitle">PDF නම</label>
+        <input id="spPdfTitle" type="text" placeholder="උදා: Sports Massage Guide">
+      </div>
+      <div class="sp-field">
+        <label for="spPdfFile">PDF File</label>
+        <input id="spPdfFile" class="sp-file" type="file" accept="application/pdf,.pdf">
+      </div>
+      <div><button id="spUploadBtn" class="sp-btn" type="button">📤 PDF Upload කරන්න</button></div>
+    </div>
+    <div id="spUploadStatus" class="sp-status"></div>
+    <p class="sp-note">🔒 PDF බලන Password: <b>Sajith2000</b> (HTML code එකේ <code>SECURE_PDF_PASSWORD</code> value එක වෙනස් කර password එක වෙනස් කළ හැක.)</p>
+  </div>
+
+  <div class="sp-panel">
+    <h3 style="color:#19d3ae;margin:0">📚 Uploaded PDFs</h3>
+    <div id="spSavedPdfList" class="sp-list"></div>
+  </div>
+</section>
+
+<div id="spViewerModal" role="dialog" aria-modal="true" aria-label="PDF Viewer">
+  <div id="spViewerBox">
+    <div id="spViewerTop"><span id="spViewerTitle">PDF Viewer</span><button id="spCloseViewer" class="sp-btn danger" type="button">✕ Close</button></div>
+    <iframe id="spPdfFrame" title="Secure PDF Viewer"></iframe>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  const SECURE_PDF_PASSWORD = 'Sajith2000';
+  const DB_NAME = 'SajithSportsSecurePDFDB';
+  const STORE_NAME = 'pdfs';
+  const DB_VERSION = 1;
+  let db;
+  let activeObjectUrl = null;
+
+  const el = id => document.getElementById(id);
+  const titleInput = el('spPdfTitle');
+  const fileInput = el('spPdfFile');
+  const uploadBtn = el('spUploadBtn');
+  const statusBox = el('spUploadStatus');
+  const list = el('spSavedPdfList');
+  const modal = el('spViewerModal');
+  const frame = el('spPdfFrame');
+  const viewerTitle = el('spViewerTitle');
+
+  function esc(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+  function status(msg, ok=true){statusBox.textContent=msg;statusBox.className='sp-status '+(ok?'ok':'err');}
+  function formatBytes(bytes){if(bytes===0)return '0 B';const k=1024,s=['B','KB','MB','GB'];const i=Math.floor(Math.log(bytes)/Math.log(k));return (bytes/Math.pow(k,i)).toFixed(i?1:0)+' '+s[i];}
+
+  function openDB(){
+    return new Promise((resolve,reject)=>{
+      const req=indexedDB.open(DB_NAME,DB_VERSION);
+      req.onupgradeneeded=e=>{const d=e.target.result;if(!d.objectStoreNames.contains(STORE_NAME))d.createObjectStore(STORE_NAME,{keyPath:'id',autoIncrement:true});};
+      req.onsuccess=e=>{db=e.target.result;resolve(db);};
+      req.onerror=()=>reject(req.error);
+    });
+  }
+  function addPdf(record){return new Promise((resolve,reject)=>{const tx=db.transaction(STORE_NAME,'readwrite');const r=tx.objectStore(STORE_NAME).add(record);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});}
+  function getAllPdfs(){return new Promise((resolve,reject)=>{const r=db.transaction(STORE_NAME,'readonly').objectStore(STORE_NAME).getAll();r.onsuccess=()=>resolve(r.result||[]);r.onerror=()=>reject(r.error);});}
+  function getPdf(id){return new Promise((resolve,reject)=>{const r=db.transaction(STORE_NAME,'readonly').objectStore(STORE_NAME).get(id);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});}
+  function deletePdf(id){return new Promise((resolve,reject)=>{const r=db.transaction(STORE_NAME,'readwrite').objectStore(STORE_NAME).delete(id);r.onsuccess=()=>resolve();r.onerror=()=>reject(r.error);});}
+
+  async function render(){
+    const items=(await getAllPdfs()).sort((a,b)=>b.createdAt-a.createdAt);
+    list.innerHTML='';
+    if(!items.length){list.innerHTML='<div class="pdf-empty">තවම PDF upload කර නැත.</div>';return;}
+    items.forEach(item=>{
+      const card=document.createElement('article');card.className='sp-card';
+      card.innerHTML=`<h3>📄 ${esc(item.title)}</h3><div class="sp-meta">${formatBytes(item.size)} • ${new Date(item.createdAt).toLocaleString()}</div><div class="sp-password-row"><input type="password" class="sp-pass" placeholder="PDF බලන්න Password එක දාන්න" autocomplete="off"><button class="sp-btn sp-view" type="button">🔓 PDF බලන්න</button></div><div class="sp-actions" style="margin-top:8px"><button class="sp-btn danger sp-delete" type="button">🗑️ Delete</button></div>`;
+      card.querySelector('.sp-view').addEventListener('click',async()=>{
+        const pass=card.querySelector('.sp-pass').value;
+        if(pass!==SECURE_PDF_PASSWORD){alert('❌ වැරදි Password එකක්.');return;}
+        const rec=await getPdf(item.id);if(!rec)return;
+        if(activeObjectUrl)URL.revokeObjectURL(activeObjectUrl);
+        activeObjectUrl=URL.createObjectURL(rec.file);
+        viewerTitle.textContent=rec.title;frame.src=activeObjectUrl;modal.style.display='block';
+      });
+      card.querySelector('.sp-delete').addEventListener('click',async()=>{
+        const pass=prompt('PDF එක Delete කිරීමට Password එක ඇතුළත් කරන්න:');
+        if(pass===null)return;if(pass!==SECURE_PDF_PASSWORD){alert('❌ වැරදි Password එකක්.');return;}
+        if(confirm('මෙම PDF එක Delete කරන්නද?')){await deletePdf(item.id);await render();}
+      });
+      list.appendChild(card);
+    });
+  }
+
+  uploadBtn.addEventListener('click',async()=>{
+    const file=fileInput.files&&fileInput.files[0];
+    if(!file){status('PDF file එකක් තෝරන්න.',false);return;}
+    if(file.type!=='application/pdf'&&!file.name.toLowerCase().endsWith('.pdf')){status('PDF file එකක් පමණක් upload කරන්න.',false);return;}
+    const title=titleInput.value.trim()||file.name.replace(/\.pdf$/i,'');
+    try{uploadBtn.disabled=true;await addPdf({title,file,size:file.size,createdAt:Date.now()});titleInput.value='';fileInput.value='';status('✅ PDF එක සාර්ථකව save කළා.');await render();}
+    catch(e){status('PDF save කිරීමට නොහැකි වුණා: '+e.message,false);}
+    finally{uploadBtn.disabled=false;}
+  });
+
+  function closeViewer(){modal.style.display='none';frame.src='about:blank';if(activeObjectUrl){URL.revokeObjectURL(activeObjectUrl);activeObjectUrl=null;}}
+  el('spCloseViewer').addEventListener('click',closeViewer);
+  modal.addEventListener('click',e=>{if(e.target===modal)closeViewer();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.style.display==='block')closeViewer();});
+
+  openDB().then(render).catch(e=>status('Browser storage open කිරීමට නොහැකි වුණා: '+e.message,false));
+})();
+</script>
+
+<style>
+/* Shared PDF access: original page and its other features remain intact. */
+#pdfLibrary,#securePdfManager,#spViewerModal{display:none!important}
+#sharedPdfArea{max-width:1200px;margin:28px auto;padding:24px;background:#102a3c;border:2px solid #19d3ae;border-radius:20px;color:#e8f3f8}
+#sharedPdfArea input{padding:12px;border-radius:9px;background:#06101a;border:1px solid #31556b;color:#fff;max-width:100%;box-sizing:border-box}
+#sharedPdfArea button{padding:11px 17px;border:0;border-radius:9px;background:#19d3ae;color:#06101a;font-weight:bold;cursor:pointer}
+#sharedPdfArea button:disabled{opacity:.55}#sharedPdfArea .shared-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0}
+#sharedPdfArea .shared-card{padding:16px;margin:12px 0;border:1px solid #31556b;border-radius:12px;background:#081522;overflow-wrap:anywhere}
+#sharedPdfArea .shared-card h3{margin:0 0 8px}#sharedPdfArea .shared-card a{color:#78e6d0;margin-right:16px}
+#sharedPdfArea #sharedMessage{min-height:24px;color:#ffc857}#sharedPdfArea #sharedUpload,#sharedPdfArea #sharedContent{display:none}
+</style>
+<section id="sharedPdfArea" class="container">
+<h2>🔐 සාමාජික PDF පුස්තකාලය</h2>
+<div id="sharedLogin"><p>PDF ලේඛන බලන්න ඔබට ලබා දුන් password එක ඇතුළත් කරන්න.</p><form id="sharedLoginForm" class="shared-row"><input id="sharedPassword" type="password" autocomplete="current-password" aria-label="Password" placeholder="Password" required><button type="submit">ඇතුළු වන්න</button></form></div>
+<div id="sharedContent"><div class="shared-row"><input id="sharedSearch" type="search" placeholder="🔎 PDF නම සොයන්න" aria-label="PDF නම සොයන්න"><button id="sharedLogout" type="button">ඉවත් වන්න</button></div><div id="sharedUpload"><form id="sharedUploadForm" class="shared-row"><input name="title" maxlength="150" placeholder="PDF නම" aria-label="PDF නම"><input name="pdf" type="file" accept="application/pdf,.pdf" aria-label="PDF ගොනුව" required><button type="submit">📤 PDF Upload කරන්න</button></form></div><div id="sharedList"></div></div>
+<p id="sharedMessage" role="status"></p>
+</section>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id), message=$('sharedMessage');let documents=[],role=null;
+async function api(url,options){const res=await fetch(url,{credentials:'same-origin',cache:'no-store',...options});const type=res.headers.get('content-type')||'';const data=type.includes('json')?await res.json():null;if(!res.ok)throw Error(data?.error||'ඉල්ලීම අසාර්ථකයි.');return data;}
+function render(){const list=$('sharedList');list.replaceChildren();const q=$('sharedSearch').value.trim().toLocaleLowerCase();const filtered=documents.filter(x=>x.title.toLocaleLowerCase().includes(q));if(!filtered.length){list.textContent=documents.length?'සෙවූ PDF එකක් හමු නොවීය.':'තවම PDF එකතු කර නැත.';return;}
+ for(const item of filtered){const card=document.createElement('article');card.className='shared-card';const title=document.createElement('h3');title.textContent='📄 '+item.title;card.append(title);const info=document.createElement('p');info.textContent=(item.size/1048576).toFixed(1)+' MB';card.append(info);
+ const link=document.createElement('a');link.href='/api/pdfs/'+encodeURIComponent(item.id)+'/file';link.target='_blank';link.rel='noopener';link.textContent='📖 PDF බලන්න / Download';card.append(link);
+ if(role==='admin'){const del=document.createElement('button');del.type='button';del.textContent='🗑️ Delete';del.addEventListener('click',async()=>{if(!confirm('මෙම PDF එක ඉවත් කරන්නද?'))return;try{await api('/api/pdfs/'+encodeURIComponent(item.id),{method:'DELETE'});await refresh();}catch(e){message.textContent=e.message;}});card.append(del);}list.append(card);}}
+async function refresh(){documents=await api('/api/pdfs');render();}
+async function loggedIn(newRole){role=newRole;$('sharedLogin').style.display='none';$('sharedContent').style.display='block';$('sharedUpload').style.display=role==='admin'?'block':'none';message.textContent='';await refresh();}
+$('sharedLoginForm').addEventListener('submit',async e=>{e.preventDefault();try{const result=await api('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:$('sharedPassword').value})});$('sharedPassword').value='';await loggedIn(result.role);}catch(err){message.textContent=err.message;}});
+$('sharedSearch').addEventListener('input',render);
+$('sharedUploadForm').addEventListener('submit',async e=>{e.preventDefault();const button=e.target.querySelector('button');button.disabled=true;try{await api('/api/pdfs',{method:'POST',body:new FormData(e.target)});e.target.reset();message.textContent='PDF එක සාර්ථකව upload කළා.';await refresh();}catch(err){message.textContent=err.message;}finally{button.disabled=false;}});
+$('sharedLogout').addEventListener('click',async()=>{await api('/api/logout',{method:'POST'});role=null;documents=[];$('sharedContent').style.display='none';$('sharedLogin').style.display='block';message.textContent='';});
+api('/api/me').then(x=>loggedIn(x.role)).catch(()=>{});
+})();
+</script>
+
+<style>
+#classPdfArea{max-width:1200px;margin:28px auto;padding:24px;background:#102a3c;border:2px solid #19d3ae;border-radius:20px;color:#e8f3f8}
+#classPdfArea input{padding:12px;border-radius:9px;background:#06101a;border:1px solid #31556b;color:#fff;max-width:100%;box-sizing:border-box}
+#classPdfArea button{padding:11px 17px;border:0;border-radius:9px;background:#19d3ae;color:#06101a;font-weight:bold;cursor:pointer}
+#classPdfArea button:disabled{opacity:.55}#classPdfArea .class-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0}
+#classPdfArea .class-card{padding:16px;margin:12px 0;border:1px solid #31556b;border-radius:12px;background:#081522;overflow-wrap:anywhere}
+#classPdfArea .class-card h3{margin:0 0 8px}#classPdfArea .class-card a{color:#78e6d0;margin-right:16px}
+#classPdfArea #classMessage{min-height:24px;color:#ffc857}#classPdfArea #classUpload,#classPdfArea #classContent{display:none}
+</style>
+<section id="classPdfArea" class="container">
+<h2>📚 පන්ති ගැනීම</h2>
+<div id="classLogin"><p>පන්ති PDF බලන්න ඔබට ලබා දුන් password එක ඇතුළත් කරන්න.</p><form id="classLoginForm" class="class-row"><input id="classPassword" type="password" autocomplete="current-password" aria-label="Password" placeholder="Password" required><button type="submit">ඇතුළු වන්න</button></form></div>
+<div id="classContent"><div class="class-row"><input id="classSearch" type="search" placeholder="🔎 පන්ති PDF නම සොයන්න" aria-label="පන්ති PDF නම සොයන්න"><button id="classLogout" type="button">ඉවත් වන්න</button></div><div id="classUpload"><form id="classUploadForm" class="class-row"><input name="title" maxlength="150" placeholder="PDF නම" aria-label="PDF නම"><input name="pdf" type="file" accept="application/pdf,.pdf" aria-label="PDF ගොනුව" required><button type="submit">📤 පන්ති PDF Upload කරන්න</button></form></div><div id="classList"></div></div>
+<p id="classMessage" role="status"></p>
+</section>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id),message=$('classMessage');let documents=[],role=null;
+async function api(url,options){const res=await fetch(url,{credentials:'same-origin',cache:'no-store',...options});const type=res.headers.get('content-type')||'';const data=type.includes('json')?await res.json():null;if(!res.ok)throw Error(data?.error||'ඉල්ලීම අසාර්ථකයි.');return data;}
+function render(){const list=$('classList');list.replaceChildren();const q=$('classSearch').value.trim().toLocaleLowerCase();const filtered=documents.filter(x=>x.title.toLocaleLowerCase().includes(q));if(!filtered.length){list.textContent=documents.length?'සෙවූ PDF එකක් හමු නොවීය.':'තවම පන්ති PDF එකතු කර නැත.';return;}
+ for(const item of filtered){const card=document.createElement('article');card.className='class-card';const title=document.createElement('h3');title.textContent='📄 '+item.title;card.append(title);const info=document.createElement('p');info.textContent=(item.size/1048576).toFixed(1)+' MB';card.append(info);
+ const link=document.createElement('a');link.href='/api/classes/'+encodeURIComponent(item.id)+'/file';link.target='_blank';link.rel='noopener';link.textContent='📖 PDF බලන්න / Download';card.append(link);
+ if(role==='admin'){const del=document.createElement('button');del.type='button';del.textContent='🗑️ Delete';del.addEventListener('click',async()=>{if(!confirm('මෙම PDF එක ඉවත් කරන්නද?'))return;try{await api('/api/classes/'+encodeURIComponent(item.id),{method:'DELETE'});await refresh();}catch(e){message.textContent=e.message;}});card.append(del);}list.append(card);}}
+async function refresh(){documents=await api('/api/classes');render();}
+async function loggedIn(newRole){role=newRole;$('classLogin').style.display='none';$('classContent').style.display='block';$('classUpload').style.display=role==='admin'?'block':'none';message.textContent='';await refresh();}
+$('classLoginForm').addEventListener('submit',async e=>{e.preventDefault();try{const result=await api('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:$('classPassword').value})});$('classPassword').value='';window.location.reload();}catch(err){message.textContent=err.message;}});
+$('classSearch').addEventListener('input',render);
+$('classUploadForm').addEventListener('submit',async e=>{e.preventDefault();const button=e.target.querySelector('button');button.disabled=true;try{await api('/api/classes',{method:'POST',body:new FormData(e.target)});e.target.reset();message.textContent='පන්ති PDF එක සාර්ථකව upload කළා.';await refresh();}catch(err){message.textContent=err.message;}finally{button.disabled=false;}});
+$('classLogout').addEventListener('click',async()=>{await api('/api/logout',{method:'POST'});window.location.reload();});
+api('/api/me').then(x=>loggedIn(x.role)).catch(()=>{});
+})();
+</script>
+
+</body>
+</html>
